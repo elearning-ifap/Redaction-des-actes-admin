@@ -1,0 +1,2 @@
+TEST LOCAL v1.4 — 6 infographies pédagogiques intégrées.
+Décompressez puis ouvrez index.html avec Chrome ou Edge.

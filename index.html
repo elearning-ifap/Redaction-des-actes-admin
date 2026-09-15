@@ -1,0 +1,888 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rédiger et sécuriser un acte administratif en Nouvelle-Calédonie</title>
+<style>
+:root{
+  --bg:#f5f3f8;
+  --paper:#ffffff;
+  --ink:#262232;
+  --muted:#726b7e;
+  --violet:#5f4a88;
+  --violet-soft:#eee9f5;
+  --coral:#e97b73;
+  --coral-soft:#fff0ee;
+  --line:#e6e0eb;
+  --ok:#31785b;
+  --warn:#9b6523;
+  --danger:#a94949;
+  --focus:#245fc2;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{font-family:Lato,Arial,sans-serif;background:var(--bg);color:var(--ink);font-size:18px}
+button,input{font:inherit}
+button:focus-visible,input:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+#app{min-height:100vh;display:grid;grid-template-columns:196px minmax(0,1fr)}
+.rail{
+  position:fixed;inset:0 auto 0 0;width:196px;background:#fff;border-right:1px solid var(--line);
+  padding:22px 14px 88px;overflow-y:auto;scrollbar-width:none;z-index:30
+}
+.rail::-webkit-scrollbar{display:none}
+.rail-title{font-size:12px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);font-weight:900;margin:0 10px 18px}
+.section-btn{
+  width:100%;border:0;background:transparent;text-align:left;padding:12px 10px 12px 14px;border-radius:10px;
+  color:#5d5668;cursor:pointer;position:relative;line-height:1.25;font-weight:700
+}
+.section-btn:hover{background:#f8f6fa}
+.section-btn.active{background:#f8f5fb;color:var(--violet)}
+.section-btn.active::before{
+  content:"";position:absolute;left:0;top:9px;bottom:9px;width:4px;border-radius:8px;background:var(--coral)
+}
+.section-meta{display:block;font-size:12px;color:#8e8797;font-weight:500;margin-top:4px}
+.main{grid-column:2;min-width:0}
+.topbar{
+  position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);padding:15px 28px 13px
+}
+.toprow{display:flex;align-items:flex-start;gap:20px}
+.course{min-width:0;flex:1}
+.course small{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:900}
+.course strong{display:block;font-size:17px;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.where{text-align:right;min-width:155px}
+.where strong{display:block;color:var(--violet);font-size:14px}
+.where span{display:block;color:var(--muted);font-size:12px;margin-top:3px}
+.progress{height:5px;background:#eeeaf1;border-radius:999px;overflow:hidden;margin-top:12px}
+.progress>div{height:100%;background:linear-gradient(90deg,var(--violet),var(--coral));width:0;transition:width .25s}
+.stage{width:min(1020px,100%);margin:0 auto;padding:28px 30px 122px}
+.screen{
+  background:var(--paper);border:1px solid var(--line);border-radius:20px;min-height:640px;
+  box-shadow:0 12px 34px rgba(56,45,72,.06);overflow:hidden
+}
+.hero-band{padding:26px 34px 20px;border-bottom:1px solid var(--line);background:#fff}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:9px;color:var(--violet);font-size:13px;font-weight:900;
+  text-transform:uppercase;letter-spacing:.08em
+}
+.eyebrow::before{content:"";width:26px;height:3px;border-radius:99px;background:var(--coral)}
+h1,h2,h3{margin:0}
+h1{font-size:36px;line-height:1.1;margin-top:9px}
+h2{font-size:28px;line-height:1.2}
+h3{font-size:20px}
+.content{padding:30px 34px 34px;line-height:1.55}
+.lead{font-size:21px;color:#453f50;line-height:1.48;max-width:860px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{border:1px solid var(--line);background:#fff;border-radius:15px;padding:18px}
+.card.soft{background:#faf8fb}
+.card h3{margin-bottom:8px}
+.quote{border-left:4px solid var(--coral);background:var(--coral-soft);padding:18px 20px;border-radius:10px;font-size:20px}
+.callout{border-radius:14px;padding:17px 19px;margin:18px 0}
+.callout.ok{background:#eef8f3;border:1px solid #bddfce}
+.callout.warn{background:#fff6e9;border:1px solid #ecd1ab}
+.callout.danger{background:#fff0f0;border:1px solid #e8c0c0}
+.callout.info{background:var(--violet-soft);border:1px solid #d9cfea}
+.pill,.tag{display:inline-block;border-radius:999px;padding:5px 9px;font-size:12px;font-weight:900;background:var(--violet-soft);color:var(--violet)}
+.person{display:grid;grid-template-columns:74px 1fr;gap:16px;align-items:center;margin-bottom:20px}
+.avatar{
+  width:66px;height:66px;border-radius:18px;background:linear-gradient(135deg,#7a67a5,#ef938b);
+  display:grid;place-items:center;color:#fff;font-size:24px;font-weight:900
+}
+.doc{
+  background:#fff;border:1px solid #d9d4dc;border-radius:13px;padding:20px;box-shadow:0 7px 20px rgba(47,39,58,.05);
+  font-family:Georgia,serif;font-size:16px;line-height:1.55
+}
+.doc .center{text-align:center}.doc .article{font-weight:700;margin-top:13px}
+.method{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.method .m{border:1px solid var(--line);border-radius:13px;padding:14px;background:#fff}
+.method .n{font-size:12px;font-weight:900;color:var(--coral);display:none}
+.method .q{font-weight:800}
+.choice-list{display:grid;gap:12px;margin-top:20px}
+.choice{
+  display:flex;gap:13px;text-align:left;width:100%;border:1px solid var(--line);background:#fff;border-radius:14px;
+  padding:15px 16px;cursor:pointer;transition:.12s
+}
+.choice:hover{border-color:#cdbfe0;background:#fcfbfd}
+.choice.selected{border:2px solid var(--violet);background:#f7f3fb}
+.choice.correct{border:2px solid var(--ok);background:#eef8f3}
+.choice.wrong{border:2px solid var(--danger);background:#fff2f2}
+.choice-key{
+  width:28px;height:28px;flex:0 0 28px;border-radius:8px;background:#f0edf3;display:grid;place-items:center;font-weight:900;
+  font-size:13px
+}
+.submit-row{display:flex;gap:12px;align-items:center;margin-top:17px}
+.primary{
+  border:none;background:var(--violet);color:#fff;border-radius:11px;padding:12px 18px;font-weight:900;cursor:pointer
+}
+.primary:disabled{opacity:.4;cursor:not-allowed}
+.secondary{
+  border:1px solid var(--line);background:#fff;color:#4f4859;border-radius:11px;padding:11px 16px;font-weight:800;cursor:pointer
+}
+.feedback{margin-top:17px;border-radius:13px;padding:16px 18px;display:none}
+.feedback.show{display:block}
+.feedback.good{background:#eef8f3;border:1px solid #bddfce}
+.feedback.bad{background:#fff4ec;border:1px solid #efc8ae}
+.alert3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+.alert3 .a{border-radius:14px;padding:16px}
+.alert3 .green{background:#eef8f3;border:1px solid #bddfce}
+.alert3 .orange{background:#fff6e9;border:1px solid #ecd1ab}
+.alert3 .red{background:#fff0f0;border:1px solid #e8c0c0}
+.checks{display:grid;gap:10px;margin-top:17px}
+.check{display:flex;gap:11px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:12px;background:#fff}
+.small,.footer-note{font-size:13px;color:var(--muted)}
+.hotspot-grid{display:grid;gap:10px;margin-top:16px}
+.hotspot{border:1px solid var(--line);background:#fff;border-radius:10px;padding:11px 13px;text-align:left;cursor:pointer}
+.hotspot.sel{border:2px solid var(--violet);background:#f7f3fb}
+.hotspot.good{border:2px solid var(--ok);background:#eef8f3}
+.hotspot.bad{border:2px solid var(--danger);background:#fff2f2}
+.nav{
+  position:fixed;left:196px;right:0;bottom:0;background:rgba(255,255,255,.97);backdrop-filter:blur(10px);
+  border-top:1px solid var(--line);padding:13px 28px;z-index:25
+}
+.nav-inner{width:min(1020px,100%);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.nav-center{font-size:13px;color:var(--muted);text-align:center}
+.mobile-menu{display:none}
+.summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.summary-grid .card{min-height:112px}
+@media(max-width:820px){
+  #app{display:block}.rail{display:none}.main{grid-column:auto}.nav{left:0}
+  .mobile-menu{display:inline-flex}
+  .topbar{padding:13px 16px}.where{min-width:auto}.course strong{font-size:15px}
+  .stage{padding:18px 12px 110px}.screen{border-radius:14px;min-height:auto}
+  .hero-band,.content{padding:21px 19px}h1{font-size:30px}
+  .grid2,.grid3,.method,.alert3,.summary-grid{grid-template-columns:1fr}
+  .nav{padding:10px 12px}.nav-center{display:none}
+}
+.drawer{
+  position:fixed;inset:0 auto 0 0;width:min(320px,88vw);background:#fff;z-index:60;padding:22px 14px;
+  transform:translateX(-105%);transition:.2s;border-right:1px solid var(--line)
+}
+.drawer.open{transform:translateX(0)}
+.backdrop{position:fixed;inset:0;background:rgba(0,0,0,.25);z-index:55;display:none}
+.backdrop.show{display:block}
+
+
+/* ===== v0.4 : enrichissement écrans 1 à 5, navigation v0.3 inchangée ===== */
+.intro-layout{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);gap:34px;align-items:center}
+.intro-hook{font-size:29px;line-height:1.25;margin:0 0 14px;color:var(--violet);font-weight:700}
+.mission-card{margin-top:24px;border:1px solid #d9cfea;background:linear-gradient(135deg,#f8f5fb,#fff);border-radius:17px;padding:18px 20px}
+.mission-label{font-size:12px;text-transform:uppercase;letter-spacing:.1em;font-weight:900;color:var(--coral);margin-bottom:6px}
+.mission-text{font-size:18px;font-weight:700;line-height:1.45}
+.intro-meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+.intro-meta span{min-width:128px;border-top:2px solid var(--line);padding-top:9px}
+.intro-meta strong{display:block;font-size:16px;color:var(--violet)}
+.intro-meta small{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+.intro-visual{display:grid;place-items:center;min-height:315px}
+.desk-scene{position:relative;width:300px;height:280px}
+.doc-back,.doc-mid,.doc-front{position:absolute;width:205px;height:245px;border-radius:14px;background:#fff;border:1px solid var(--line);box-shadow:0 18px 40px rgba(56,45,72,.10)}
+.doc-back{left:26px;top:18px;transform:rotate(-7deg);background:#f8f5fb}
+.doc-mid{left:54px;top:11px;transform:rotate(5deg);background:#fff8f7}
+.doc-front{left:45px;top:27px;padding:34px 23px}
+.doc-line{height:7px;background:#e8e4ec;border-radius:10px;margin-bottom:13px}.w70{width:70%}.w90{width:90%}.w78{width:78%}
+.doc-seal{position:absolute;right:18px;bottom:20px;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--violet-soft);color:var(--violet);font-size:24px;font-weight:900;border:1px dashed #b9acd0}
+.check-chip{position:absolute;background:#fff;border:1px solid var(--line);box-shadow:0 9px 24px rgba(56,45,72,.10);border-radius:999px;padding:8px 12px;font-size:13px;font-weight:900}
+.chip-a{left:0;top:57px;color:var(--violet)}.chip-b{right:1px;top:120px;color:#a54e48}.chip-c{left:6px;bottom:36px;color:#446d5a}
+.start-note{display:flex;gap:12px;align-items:flex-start;margin-top:27px;padding-top:18px;border-top:1px solid var(--line);color:#514a5b}
+.start-dot{width:10px;height:10px;border-radius:50%;background:var(--coral);margin-top:8px;flex:0 0 10px}
+
+.message-stage{border:1px solid var(--line);border-radius:17px;overflow:hidden;background:#faf9fb;box-shadow:0 8px 24px rgba(56,45,72,.05)}
+.message-head{display:flex;align-items:center;gap:11px;padding:13px 16px;border-bottom:1px solid var(--line);background:#fff}
+.message-head small{display:block;color:var(--muted);font-size:12px;margin-top:1px}
+.status-dot{width:10px;height:10px;border-radius:50%;background:#5aa77f;flex:0 0 10px}
+.urgent-pill{margin-left:auto;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.05em;background:var(--coral-soft);color:#9c4d47;border-radius:999px;padding:5px 9px}
+.message-bubble{max-width:710px;margin:24px 22px 28px;background:#fff;border:1px solid #ded6e5;border-left:4px solid var(--violet);border-radius:8px 15px 15px 15px;padding:18px 20px;font-size:21px;line-height:1.45}
+.old-file-row{display:flex;gap:16px;align-items:center;margin:24px 0 20px;padding:15px 17px;border:1px dashed #cfc6d7;border-radius:14px;background:#fff}
+.old-file-row p{margin:3px 0 0;color:var(--muted)}
+.old-file-icon{width:50px;height:58px;border:2px solid #b8acc5;border-radius:7px;padding:10px 8px;flex:0 0 50px;position:relative;background:#faf8fb}
+.old-file-icon:after{content:"2 ans";position:absolute;right:-11px;top:-10px;background:var(--coral);color:#fff;font-size:10px;font-weight:900;padding:3px 5px;border-radius:6px}
+.old-file-icon span{display:block;height:4px;background:#d9d1e0;border-radius:5px;margin:5px 0}
+.decision-prompt{margin-top:20px}.decision-prompt strong{display:block;font-size:20px;margin-top:5px}
+.decision-label{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--violet);font-weight:900}
+
+.logic-split{display:grid;grid-template-columns:1fr 54px 1fr;gap:16px;align-items:stretch}
+.logic-panel{border-radius:17px;padding:21px 22px;border:1px solid var(--line)}
+.model-panel{background:#faf8fb}.secure-panel{background:#fff7f5;border-color:#f1cbc7}
+.logic-label{font-size:12px;text-transform:uppercase;letter-spacing:.08em;font-weight:900;color:var(--muted);margin-bottom:7px}
+.secure-panel .logic-label{color:#a5544e}
+.logic-arrow{display:grid;place-items:center;font-size:32px;font-weight:900;color:var(--coral)}
+.clean-list{margin:14px 0 0;padding:0;list-style:none}.clean-list li{position:relative;padding:8px 0 8px 22px;border-top:1px solid rgba(0,0,0,.05)}
+.clean-list li:before{content:"";position:absolute;left:1px;top:17px;width:8px;height:8px;border-radius:50%;background:var(--coral)}
+.model-panel .clean-list li:before{background:#aaa1b6}
+.key-sentence{display:flex;gap:14px;align-items:center;margin-top:22px;padding:17px 19px;border-radius:14px;background:var(--violet-soft);border:1px solid #d8cfea}
+.key-mark{width:34px;height:34px;display:grid;place-items:center;border-radius:50%;background:var(--violet);color:#fff;font-weight:900;flex:0 0 34px}
+.micro-question{margin-top:15px;border-left:3px solid var(--coral);padding:5px 0 5px 15px}.micro-question strong{display:block}.micro-question span{color:var(--muted)}
+
+.flowline{display:grid;grid-template-columns:1fr 42px 1fr 42px 1fr;gap:7px;align-items:stretch;margin-top:6px}
+.flow-step{border-radius:17px;padding:20px 18px;border:1px solid var(--line);position:relative;overflow:hidden}
+.flow-step:after{content:"";position:absolute;inset:auto 0 0;height:5px}
+.flow-step.before{background:#f8f5fb}.flow-step.before:after{background:var(--violet)}
+.flow-step.during{background:#fff}.flow-step.during:after{background:#9987ba}
+.flow-step.after{background:#fff7f5}.flow-step.after:after{background:var(--coral)}
+.flow-icon{width:36px;height:36px;border-radius:12px;display:grid;place-items:center;background:#fff;border:1px solid var(--line);font-weight:900;color:var(--violet);margin-bottom:18px}
+.flow-kicker{font-size:12px;text-transform:uppercase;letter-spacing:.08em;font-weight:900;color:var(--muted)}
+.flow-text h3{margin-top:4px}.flow-text p{margin-bottom:4px;color:#56505e}
+.flow-connector{display:grid;place-items:center;color:#b4a9bd;font-size:28px;font-weight:700}
+.risk-strip{display:flex;gap:15px;align-items:flex-start;margin-top:25px;padding:18px 20px;border:1px solid #e8c6c2;border-radius:15px;background:var(--coral-soft)}
+.risk-strip p{margin:4px 0 0;color:#5b5050}.risk-symbol{width:34px;height:34px;border-radius:50%;background:var(--coral);color:#fff;font-weight:900;display:grid;place-items:center;flex:0 0 34px}
+
+.compact-lead{max-width:760px;margin-top:0}
+.questions-cluster{display:grid;grid-template-columns:1.45fr .8fr .9fr;gap:14px;margin-top:22px}
+.cluster{border:1px solid var(--line);border-radius:17px;padding:18px;min-width:0}
+.cluster-a{background:#f8f5fb}.cluster-b{background:#fff}.cluster-c{background:#fff7f5}
+.cluster-head{display:flex;gap:12px;align-items:center;padding-bottom:13px;border-bottom:1px solid rgba(100,80,120,.11)}
+.cluster-num{font-size:14px;font-weight:900;color:var(--coral);letter-spacing:.05em}
+.cluster-head small{display:block;text-transform:uppercase;font-size:10px;letter-spacing:.09em;font-weight:900;color:var(--muted)}
+.cluster-head h3{margin-top:2px}
+.question-chips{display:grid;gap:8px;margin-top:14px}
+.question-chips span{display:block;border-radius:10px;background:rgba(255,255,255,.82);border:1px solid rgba(110,90,130,.11);padding:9px 10px;font-size:14px;line-height:1.3;font-weight:700}
+.remember-band{display:flex;gap:14px;align-items:center;margin-top:20px;padding:15px 18px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.remember-eye{font-size:26px;color:var(--violet);font-weight:900}
+
+@media(max-width:820px){
+  .intro-layout{grid-template-columns:1fr}.intro-visual{min-height:270px}.desk-scene{transform:scale(.9);transform-origin:center}
+  .intro-hook{font-size:25px}.message-bubble{font-size:18px;margin:18px 15px 22px}
+  .logic-split{grid-template-columns:1fr}.logic-arrow{min-height:36px}
+  .flowline{grid-template-columns:1fr}.flow-connector{transform:rotate(90deg);min-height:28px}
+  .questions-cluster{grid-template-columns:1fr}
+}
+
+/* ===== v0.5 : dossier Commune, écrans 6 à 10 ===== */
+.case-opening{display:grid;grid-template-columns:minmax(220px,.72fr) minmax(0,1.28fr);gap:22px;margin-bottom:20px}
+.case-person{display:flex;gap:15px;align-items:center;border:1px solid var(--line);border-radius:17px;padding:17px;background:#faf8fb}
+.person-portrait{width:84px;height:104px;border-radius:18px;display:grid;place-items:center;flex:0 0 84px;position:relative;overflow:hidden;background:linear-gradient(160deg,#d7cdea,#fff0ec)}
+.person-portrait:before{content:"";position:absolute;width:54px;height:54px;border-radius:50%;background:#c7badb;top:15px}
+.person-portrait:after{content:"";position:absolute;width:68px;height:55px;border-radius:50% 50% 12px 12px;background:#6d5a83;bottom:-7px}
+.person-portrait span{position:relative;z-index:2;color:#fff;font-weight:900;font-size:18px;margin-top:-14px}
+.person-caption h3{margin:4px 0 5px}.person-caption p{margin:0;color:var(--muted);font-size:14px;line-height:1.4}
+.role-tag{font-size:10px;text-transform:uppercase;letter-spacing:.09em;font-weight:900;color:var(--coral)}
+.case-context{border-left:4px solid var(--violet);padding:11px 0 6px 19px}.case-context p{font-size:18px;line-height:1.5;margin:7px 0}
+.case-label{font-size:11px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);font-weight:900}
+.manager-request{display:flex;gap:14px;align-items:flex-start;background:#fff7f5;border:1px solid #efc9c4;border-radius:15px;padding:16px 18px;margin:18px 0}
+.manager-request small{display:block;text-transform:uppercase;font-size:10px;letter-spacing:.08em;color:#9a554f;font-weight:900;margin-bottom:4px}
+.manager-request strong{font-size:18px;line-height:1.4}.manager-mark{color:var(--coral);font-size:25px;font-weight:900;line-height:1}
+.dossier-table{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin:20px 0 22px}
+.dossier-piece{border:1px solid var(--line);border-radius:16px;padding:17px;min-height:190px;position:relative;overflow:hidden}
+.dossier-piece:after{content:"";position:absolute;height:5px;left:0;right:0;bottom:0}.piece-mail{background:#faf8fb}.piece-mail:after{background:#8c78a5}.piece-map{background:#fff}.piece-map:after{background:#7d9c8b}.piece-law{background:#fff7f5}.piece-law:after{background:var(--coral)}
+.piece-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:26px}.piece-icon{width:34px;height:34px;border-radius:11px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;font-weight:900;color:var(--violet)}
+.piece-type{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:900;text-align:right}.dossier-piece h3{font-size:18px}.dossier-piece p{color:#5c5662;line-height:1.45}
+.focus-question{display:flex;gap:16px;align-items:center;border-top:1px solid var(--line);padding-top:18px}.focus-question span{font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em;color:var(--coral);flex:0 0 85px}.focus-question strong{font-size:18px}
+.decision-sheet{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 10px 28px rgba(56,45,72,.05)}
+.decision-sheet-head{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:14px 17px;background:#faf8fb;border-bottom:1px solid var(--line)}.decision-sheet-head span{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:900}.decision-sheet-head strong{font-size:15px;color:var(--violet)}
+.decision-street{height:150px;background:linear-gradient(#dfe7e3 0 34%,#858c93 34% 74%,#d9e0dd 74%);position:relative;overflow:hidden}.street-line{position:absolute;left:0;right:0;top:83px;height:3px;background:repeating-linear-gradient(90deg,#f5df87 0 35px,transparent 35px 65px)}
+.road-sign{position:absolute;left:42px;top:51px;width:51px;height:51px;border-radius:50%;background:#fff;display:grid;place-items:center;font-size:31px;box-shadow:0 4px 12px rgba(0,0,0,.15)}
+.street-label{position:absolute;left:112px;top:53px;background:rgba(255,255,255,.94);padding:7px 10px;border-radius:8px;font-weight:900;font-size:14px}.time-badge{position:absolute;right:22px;bottom:16px;background:var(--violet);color:#fff;border-radius:999px;padding:8px 12px;font-size:12px;font-weight:900}
+.decision-sheet-text{padding:16px 19px;line-height:1.45}.compare-question{margin-top:19px;padding-left:17px;border-left:3px solid var(--coral)}.compare-label{font-size:12px;color:var(--muted);margin-bottom:4px}.compare-question strong{font-size:18px}
+.split-doc-scene{display:grid;grid-template-columns:.95fr 1.05fr;gap:24px;align-items:center;margin:10px 0 24px}
+.old-act{position:relative;border:1px solid var(--line);background:#fff;border-radius:13px;padding:24px 20px 17px;box-shadow:0 12px 30px rgba(56,45,72,.07);min-height:230px}
+.old-act-ribbon{position:absolute;right:-8px;top:15px;background:#8a7d93;color:#fff;padding:5px 11px;border-radius:7px 0 0 7px;font-size:10px;font-weight:900}
+.old-act-lines span{display:block;height:6px;background:#ece8ef;border-radius:8px;margin:13px 0}.old-act-lines span:nth-child(2){width:81%}.old-act-lines span:nth-child(3){width:92%}.old-act-lines span:nth-child(4){width:66%}
+.old-act-footer{position:absolute;left:20px;right:20px;bottom:18px;padding-top:12px;border-top:1px solid var(--line)}.old-act-footer small{display:block;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.07em;margin-bottom:3px}.old-act-footer strong{font-size:14px;color:#5a5260}
+.colleague-bubble{background:#fff7f5;border:1px solid #efcbc7;border-radius:16px 16px 16px 5px;padding:22px;position:relative}.colleague-bubble small{display:block;text-transform:uppercase;letter-spacing:.08em;color:#a65b54;font-size:10px;font-weight:900;margin-bottom:6px}.colleague-bubble strong{font-size:20px;line-height:1.45}
+.risk-question{display:flex;gap:13px;align-items:center;padding-top:17px;border-top:1px solid var(--line)}.risk-dot{width:13px;height:13px;background:var(--coral);border-radius:50%;box-shadow:0 0 0 6px var(--coral-soft)}
+.risk-question small{display:block;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.07em}.risk-question strong{font-size:18px}
+.post-signature{display:grid;grid-template-columns:auto 50px 1fr;align-items:center;gap:13px;margin:12px 0 25px}.signature-stamp{border:2px solid #7fa48e;border-radius:14px;background:#f2faf5;padding:16px 22px;display:flex;align-items:center;gap:11px;color:#426c55}
+.signature-stamp span{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#6e9b80;color:#fff;font-weight:900}.post-arrow{font-size:30px;color:#b5abbc;text-align:center}.post-question small{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);font-weight:900}.post-question strong{font-size:21px}
+.action-cards-intro{display:flex;align-items:end;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:10px}.action-cards-intro span{font-size:14px;font-weight:900;color:var(--violet)}.action-cards-intro p{margin:0;color:var(--muted);font-size:12px}
+@media(max-width:820px){.case-opening,.split-doc-scene{grid-template-columns:1fr}.dossier-table{grid-template-columns:1fr}.dossier-piece{min-height:0}.post-signature{grid-template-columns:1fr}.post-arrow{transform:rotate(90deg)}.action-cards-intro{display:block}.action-cards-intro p{margin-top:3px}}
+
+/* ===== v0.6 : dossier Province, écrans 11 à 16 ===== */
+.province-case{margin-bottom:14px}.portrait-lina{background:linear-gradient(160deg,#ead6ca,#e4dff0)}.portrait-lina:before{background:#c99b7e}.portrait-lina:after{background:#7a5265}.province-context{border-left-color:var(--coral)}
+.province-dossier-stack{height:77px;position:relative;margin:8px 0 16px;max-width:620px}.stack-doc{position:absolute;top:0;width:170px;height:61px;border:1px solid var(--line);border-radius:10px;background:#fff;display:flex;align-items:center;padding:0 15px;font-size:13px;font-weight:900;box-shadow:0 7px 20px rgba(56,45,72,.07)}
+.sd1{left:0;transform:rotate(-2deg)}.sd2{left:135px;top:4px;transform:rotate(1deg);background:#faf8fb}.sd3{left:270px;top:1px;transform:rotate(-1deg);background:#fff7f5}.sd4{left:405px;top:5px;transform:rotate(2deg);color:var(--muted)}
+.province-request{margin-top:5px}
+
+.regime-compare{display:grid;grid-template-columns:1fr 54px 1fr;gap:15px;align-items:stretch;margin:22px 0}
+.regime-card{border:1px solid var(--line);border-radius:17px;padding:20px;min-height:215px}.regime-state{background:#faf8fb}.regime-local{background:#fff7f5;border-color:#edcbc6}
+.regime-top{display:flex;align-items:center;gap:9px;font-size:11px;text-transform:uppercase;letter-spacing:.07em;font-weight:900;color:var(--muted)}
+.regime-icon{width:30px;height:30px;border-radius:10px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;color:var(--violet)}
+.regime-card h3{margin:24px 0 7px;font-size:24px}.regime-card p{color:#5e5663;line-height:1.48}.regime-switch{display:grid;place-items:center;color:var(--coral);font-size:30px;font-weight:900}
+.regime-warning{display:flex;gap:12px;align-items:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 0}.regime-warning>span{width:31px;height:31px;border-radius:50%;background:var(--coral);color:#fff;display:grid;place-items:center;font-weight:900;flex:0 0 31px}
+
+.legal-extract-card{border:1px solid #d8cfea;border-radius:17px;overflow:hidden;background:#fff;max-width:780px;margin:8px auto 20px}
+.legal-extract-head{display:flex;gap:12px;align-items:center;background:#f8f5fb;padding:13px 17px;border-bottom:1px solid #e3dbea}.legal-symbol{width:35px;height:35px;border-radius:11px;background:var(--violet);color:#fff;display:grid;place-items:center;font-weight:900}
+.legal-extract-head small{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}.legal-extract-body{padding:23px 24px;font-size:19px;line-height:1.55}.legal-extract-body strong{display:block;margin-top:13px;color:var(--violet)}
+.case-link{display:flex;align-items:center;gap:12px;margin:20px 0}.case-link-label{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--coral);font-weight:900;white-space:nowrap}.case-link-line{height:1px;background:var(--line);flex:1}.case-link strong{max-width:450px}
+
+.act-analysis{display:grid;grid-template-columns:1.15fr .85fr;gap:23px;align-items:stretch}
+.act-paper{border:1px solid #cfc7d5;border-radius:14px;background:#fff;box-shadow:0 12px 30px rgba(56,45,72,.06);overflow:hidden}
+.act-section{padding:17px 19px;border-bottom:1px solid var(--line);position:relative}.act-section:last-child{border-bottom:0}.act-visas{background:#faf9fb}.act-motive{background:#fff7f5}.act-dispositif{background:#fff}
+.act-label{display:inline-block;font-size:9px;text-transform:uppercase;letter-spacing:.09em;font-weight:900;color:var(--muted);margin-bottom:7px}.act-motive .act-label{color:#a65851}.act-section p{margin:5px 0;line-height:1.45}
+.analysis-side{display:flex;flex-direction:column;justify-content:center;gap:15px}.analysis-question{padding:16px 17px;border-radius:14px;background:#faf8fb;border:1px solid var(--line);font-size:17px;line-height:1.45}.analysis-question.strongq{background:var(--coral-soft);border-color:#efcbc7;font-weight:800}
+.visa-vs-motif{display:grid;grid-template-columns:1fr 45px 1fr;gap:10px;align-items:center;margin:22px 0 5px}.visa-vs-motif>div{border-top:2px solid #d7d0dc;padding-top:10px}.visa-vs-motif>div:last-child{border-top-color:var(--coral)}.visa-vs-motif small{display:block;color:var(--muted);font-size:11px}.visa-vs-motif strong{display:block;margin-top:4px}.visa-vs-motif>span{text-align:center;color:var(--coral);font-size:25px;font-weight:900}
+
+.reasoning-flow{display:grid;grid-template-columns:1fr 40px 1fr 40px 1fr;gap:8px;align-items:stretch;margin-top:5px}.reason-node{border-radius:16px;border:1px solid var(--line);padding:18px;min-height:132px}.rule-node{background:#f8f5fb}.fact-node{background:#fff}.decision-node{background:#fff7f5;border-color:#efcbc7}.reason-kicker{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.08em;font-weight:900;color:var(--muted);margin-bottom:15px}.reason-node strong{line-height:1.4}.reason-arrow{display:grid;place-items:center;font-size:27px;color:#aa9eb2;font-weight:900}
+.fact-file{margin-top:22px;border:1px solid var(--line);border-radius:15px;overflow:hidden}.fact-file-head{display:flex;justify-content:space-between;gap:15px;padding:12px 15px;background:#faf9fb;border-bottom:1px solid var(--line)}.fact-file-head span{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:900}.fact-mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line)}.fact-mini-grid span{background:#fff;padding:13px 15px;font-size:13px}
+
+.before-after-motive{display:grid;grid-template-columns:1fr 52px 1fr;gap:13px;align-items:stretch}.motive-version{border:1px solid var(--line);border-radius:17px;padding:20px;position:relative}.weak-version{background:#faf9fb}.strong-version{background:#fff7f5;border-color:#efcbc7}.motive-badge{display:inline-block;font-size:9px;text-transform:uppercase;letter-spacing:.1em;font-weight:900;padding:5px 8px;border-radius:999px;background:#ebe7ef;color:#665c6f}.strong-version .motive-badge{background:#f8deda;color:#9d4d47}.motive-status{display:block;margin:11px 0 18px;font-size:12px;color:var(--muted);font-weight:800}.motive-version blockquote{margin:0;padding-left:14px;border-left:3px solid #bdb4c4;font-size:20px;line-height:1.5}.motive-version>p{color:var(--muted);font-size:14px}.motive-divider{display:grid;place-items:center;color:var(--coral);font-size:30px;font-weight:900}
+.motive-steps{display:grid;gap:10px}.motive-steps div{display:grid;grid-template-columns:88px 1fr;gap:10px;align-items:start;border-top:1px solid rgba(130,90,100,.12);padding-top:10px}.motive-steps span{font-size:10px;text-transform:uppercase;letter-spacing:.08em;font-weight:900;color:#a2564f}.motive-steps p{margin:0;line-height:1.4;font-size:14px}
+.reader-test{display:flex;gap:15px;align-items:center;margin-top:23px;padding:16px 18px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.reader-icon{font-size:30px}.reader-test small{display:block;text-transform:uppercase;font-size:10px;letter-spacing:.08em;color:var(--muted);font-weight:900;margin-bottom:4px}.reader-test strong{line-height:1.4}.province-key{margin-top:18px}
+
+@media(max-width:820px){
+  .regime-compare,.act-analysis,.before-after-motive{grid-template-columns:1fr}.regime-switch,.motive-divider{min-height:36px}
+  .reasoning-flow{grid-template-columns:1fr}.reason-arrow{transform:rotate(90deg);min-height:28px}
+  .fact-mini-grid{grid-template-columns:1fr}
+  .province-dossier-stack{height:auto;display:grid;grid-template-columns:1fr 1fr;gap:8px}.stack-doc{position:static;width:auto;height:48px;transform:none!important}
+  .visa-vs-motif{grid-template-columns:1fr}.visa-vs-motif>span{transform:rotate(90deg)}
+}
+
+/* ===== v0.7 : dossier Nouvelle-Calédonie, écrans 17 à 22 ===== */
+.nc-case{margin-bottom:12px}.portrait-thomas{background:linear-gradient(160deg,#d8d1e8,#dfe9e4)}.portrait-thomas:before{background:#c1a185}.portrait-thomas:after{background:#49646b}.nc-context{border-left-color:#7e6ba2}
+.nc-source-chain{display:grid;grid-template-columns:1fr 60px 1fr;gap:12px;align-items:center;max-width:760px;margin:16px auto 19px}
+.chain-doc{border:1px solid var(--line);border-radius:15px;padding:17px 19px;min-height:98px;display:flex;flex-direction:column;justify-content:center}.chain-doc span{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:900}.chain-doc strong{font-size:20px;margin-top:6px}.congress-doc{background:#f8f5fb}.gov-doc{background:#fff7f5;border-color:#efcbc7}.chain-arrow{text-align:center;font-size:30px;color:var(--coral);font-weight:900}.nc-request{margin-top:5px}
+
+.habilitation-board{display:grid;grid-template-columns:1fr 125px 1fr;gap:13px;align-items:stretch;margin:8px 0 21px}
+.habilitation-source,.habilitation-target{border:1px solid var(--line);border-radius:17px;padding:20px;background:#fff}.habilitation-source{background:#f8f5fb}.habilitation-target{background:#fff7f5;border-color:#edcbc6}
+.hb-head{display:flex;gap:11px;align-items:center;border-bottom:1px solid rgba(100,80,120,.12);padding-bottom:13px;margin-bottom:16px}.hb-num{width:32px;height:32px;border-radius:10px;background:var(--violet);color:#fff;display:grid;place-items:center;font-size:12px;font-weight:900}.habilitation-target .hb-num{background:var(--coral)}
+.hb-head small{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:900}.habilitation-source p,.habilitation-target blockquote{margin:0;line-height:1.55}.habilitation-target blockquote{border-left:3px solid var(--coral);padding-left:14px;font-size:17px}
+.habilitation-link{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:var(--muted);gap:8px;font-size:10px;text-transform:uppercase;letter-spacing:.06em;font-weight:900}.habilitation-link span{display:block;width:2px;height:35px;background:#c7bdce}.habilitation-link strong{font-size:10px}
+.habilitation-result{display:flex;gap:13px;align-items:flex-start;padding:15px 17px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.result-key{width:31px;height:31px;border-radius:50%;display:grid;place-items:center;background:#6f9d82;color:#fff;font-weight:900;flex:0 0 31px}.habilitation-result small{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:900;margin-bottom:4px}.habilitation-result strong{line-height:1.4}
+
+.scope-frame{border:2px solid #cdbfe1;border-radius:18px;background:#f9f7fb;overflow:hidden}.scope-head{display:flex;justify-content:space-between;gap:15px;align-items:center;padding:14px 17px;border-bottom:1px solid #ddd3e8}.scope-label{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:900}.scope-head strong{color:var(--violet)}
+.scope-inside{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:20px}.scope-inside span{background:#fff;border:1px solid #d9d0e2;border-radius:12px;padding:15px;text-align:center;font-weight:800;font-size:14px}
+.scope-outside{display:flex;gap:14px;align-items:center;margin:17px 0;padding:16px 18px;border:2px dashed #e3a59f;border-radius:15px;background:#fff8f6}.outside-mark{width:36px;height:36px;border-radius:50%;background:var(--coral);color:#fff;display:grid;place-items:center;font-size:23px;font-weight:900;flex:0 0 36px}.scope-outside small{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:#a25750;font-weight:900;margin-bottom:4px}.scope-outside strong{line-height:1.45}
+.scope-alert{display:flex;gap:13px;align-items:flex-start;border-left:4px solid var(--coral);padding:8px 0 8px 16px}.scope-alert>span{font-size:28px;color:var(--coral);font-weight:900}.scope-alert p{margin:4px 0 0;color:var(--muted)}
+
+.perfect-act-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:22px;align-items:stretch}.perfect-checks{border:1px solid var(--line);border-radius:17px;padding:19px;background:#f8f5fb}.perfect-title{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:900;margin-bottom:14px}.perfect-item{padding:9px 0;border-top:1px solid rgba(100,80,120,.1);font-weight:700}.perfect-item span{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:#e8f4ed;color:#4d795f;margin-right:8px;font-size:12px}
+.signature-paper{border:1px solid #cbc3d1;border-radius:14px;background:#fff;box-shadow:0 12px 30px rgba(56,45,72,.06);padding:25px;display:flex;flex-direction:column;justify-content:space-between;min-height:250px}.sig-lines span{display:block;height:6px;border-radius:6px;background:#eeeaf0;margin:12px 0}.sig-lines span:nth-child(2){width:86%}.sig-lines span:nth-child(3){width:63%}.sig-zone{margin:38px 0 0 auto;width:63%;border-top:1px solid var(--line);padding-top:13px;text-align:center}.sig-zone small{display:block;color:var(--muted);font-size:9px;text-transform:uppercase;letter-spacing:.08em}.sig-zone strong{display:block;margin:8px 0}.sig-zone em{color:#aaa0ae;font-size:13px}
+.magnifier-note{display:flex;gap:13px;align-items:center;margin-top:20px;padding:14px 17px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.magnifier{font-size:32px;color:var(--coral)}.magnifier-note small{display:block;text-transform:uppercase;font-size:9px;letter-spacing:.08em;color:var(--muted);font-weight:900;margin-bottom:3px}
+
+.signature-system{display:grid;grid-template-columns:1fr 60px 1fr;gap:14px;align-items:stretch;margin:7px 0 22px}.sign-card{border:1px solid var(--line);border-radius:18px;padding:21px;text-align:center;position:relative}.president-card{background:#f8f5fb}.member-card{background:#fff7f5;border-color:#efcbc7}.sign-role{position:absolute;top:12px;right:12px;font-size:9px;text-transform:uppercase;letter-spacing:.08em;font-weight:900;color:var(--muted)}.sign-avatar{width:58px;height:58px;border-radius:18px;background:var(--violet);color:#fff;display:grid;place-items:center;font-size:20px;font-weight:900;margin:7px auto 14px}.member-card .sign-avatar{background:var(--coral)}.sign-card h3{font-size:18px}.sign-card p{color:var(--muted);font-size:13px;line-height:1.4}.signature-line{width:75%;height:1px;background:#cfc7d5;margin:28px auto 2px}.signature-plus{display:grid;place-items:center;color:var(--coral);font-size:30px;font-weight:900}
+.signature-rule{display:flex;gap:14px;align-items:center;padding:16px 18px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.signature-rule small{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:900;margin-bottom:4px}.signature-rule strong{line-height:1.4}
+
+.lifecycle{display:grid;grid-template-columns:1fr 32px 1fr 32px 1fr 32px 1fr 32px 1fr;gap:5px;align-items:stretch;margin:21px 0}.life-step{border:1px solid var(--line);border-radius:14px;padding:14px 11px;min-height:130px;display:flex;flex-direction:column;justify-content:flex-start}.done-step{background:#f2f8f4;border-color:#c8ded0}.pending-step{background:#fff9f2;border-color:#ecd7b9}.final-step{background:#f8f5fb;border-color:#d7cce4}.life-num{width:27px;height:27px;border-radius:9px;background:#fff;border:1px solid currentColor;display:grid;place-items:center;font-size:10px;font-weight:900;color:#74667f;margin-bottom:15px}.life-step small{font-size:9px;line-height:1.25;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:900;margin-bottom:5px}.life-step strong{font-size:14px;line-height:1.3}.life-arrow{display:grid;place-items:center;color:#b5aabd;font-size:21px;font-weight:900}
+.lifecycle-note{display:flex;gap:13px;align-items:flex-start;padding:16px 18px;background:#fff7f5;border:1px solid #efcbc7;border-radius:15px}.lifecycle-note>span{width:32px;height:32px;border-radius:50%;background:var(--coral);color:#fff;display:grid;place-items:center;font-weight:900;flex:0 0 32px}.lifecycle-note p{margin:5px 0 0;color:#5d5354;line-height:1.45}
+
+@media(max-width:900px){
+  .habilitation-board,.perfect-act-layout,.signature-system{grid-template-columns:1fr}.habilitation-link{min-height:50px}.habilitation-link span{width:35px;height:2px}.signature-plus{min-height:35px}
+  .lifecycle{grid-template-columns:1fr}.life-arrow{transform:rotate(90deg);min-height:24px}.life-step{min-height:0}
+  .scope-inside{grid-template-columns:1fr}
+  .nc-source-chain{grid-template-columns:1fr}.chain-arrow{transform:rotate(90deg)}
+}
+
+/* ===== v0.8 : dossier établissement public, écrans 23 à 26 ===== */
+.ep-case{margin-bottom:14px}.portrait-noemie{background:linear-gradient(160deg,#ecd8c9,#e4dff0)}.portrait-noemie:before{background:#b98f73}.portrait-noemie:after{background:#5f4d6e}.ep-context{border-left-color:#8c78a5}
+.ep-request{margin-top:12px}
+.authority-trap{display:grid;grid-template-columns:1fr 56px 1fr;gap:12px;align-items:stretch;margin:19px 0}
+.trap-left,.trap-right{border:1px solid var(--line);border-radius:15px;padding:17px 19px}.trap-left{background:#faf8fb}.trap-right{background:#fff7f5;border-color:#efcbc7}
+.authority-trap small{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:900;margin-bottom:5px}.authority-trap strong{line-height:1.4}.trap-symbol{display:grid;place-items:center;font-size:29px;color:var(--coral);font-weight:900}
+
+.resource-shelf{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0 22px}.resource-card{border:1px solid var(--line);border-radius:16px;padding:15px;position:relative;min-height:205px;background:#fff}.low-resource{background:#faf9fb}.key-resource{background:#fff7f5;border:2px solid #e8aaa4;box-shadow:0 10px 24px rgba(165,84,76,.08)}
+.resource-letter{position:absolute;right:11px;top:10px;width:25px;height:25px;border-radius:8px;background:#ece8ef;color:#645b6b;display:grid;place-items:center;font-size:10px;font-weight:900}.key-resource .resource-letter{background:var(--coral);color:#fff}
+.resource-icon{width:40px;height:40px;border-radius:12px;border:1px solid var(--line);display:grid;place-items:center;color:var(--violet);font-weight:900;margin-bottom:23px;background:#fff}.key-resource .resource-icon{color:var(--coral)}
+.resource-card h3{font-size:16px;line-height:1.25}.resource-card p{font-size:13px;color:var(--muted);line-height:1.4}
+.statut-repere{display:flex;gap:13px;align-items:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 0}.statut-repere small{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:900;margin-bottom:4px}.statut-repere strong{line-height:1.4}
+
+.competence-compare{display:grid;grid-template-columns:1fr 1fr;gap:16px}.competence-box{border:1px solid var(--line);border-radius:17px;overflow:hidden}.statut-box{background:#f8f5fb}.delegation-box{background:#fff7f5;border-color:#efcbc7}.competence-head{padding:14px 17px;border-bottom:1px solid rgba(100,80,120,.11)}.competence-head span{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:900;margin-bottom:4px}.competence-head strong{font-size:16px}.competence-rule{padding:20px}.cr-label{display:inline-block;border-radius:999px;padding:5px 9px;background:#fff;border:1px solid var(--line);font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.05em;color:var(--violet);margin-bottom:11px}.delegation-box .cr-label{color:#9b514b}.competence-rule p{margin:0;line-height:1.5}
+.request-meter{margin:22px 0 18px;border:1px solid var(--line);border-radius:15px;padding:16px 18px;background:#fff}.meter-label{display:flex;justify-content:space-between;align-items:end;margin-bottom:13px}.meter-label small{font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:900}.meter-label strong{font-size:22px;color:var(--coral)}
+.meter-track{height:48px;border-radius:10px;background:#f0edf2;position:relative;overflow:hidden;display:grid;grid-template-columns:20% 55% 25%}.delegation-range{background:#dceee3;color:#426d55;display:grid;place-items:center;font-size:11px;font-weight:900}.meter-gap{background:repeating-linear-gradient(45deg,#f5f2f6 0 8px,#ece8ef 8px 16px)}.meter-target{background:#f8deda;color:#994c46;display:grid;place-items:center;font-size:12px;font-weight:900}
+.gap-alert{display:flex;gap:13px;align-items:flex-start;padding:15px 17px;background:#fff7f5;border:1px solid #efcbc7;border-radius:14px}.gap-icon{width:31px;height:31px;border-radius:50%;background:var(--coral);color:#fff;display:grid;place-items:center;font-weight:900;flex:0 0 31px}.gap-alert p{margin:4px 0 0;color:var(--muted)}
+
+.stop-scenario{display:grid;grid-template-columns:1fr 100px 1fr;gap:16px;align-items:center;margin:8px 0 23px}.stop-bubble{background:#fff7f5;border:1px solid #efcbc7;border-radius:16px 16px 16px 5px;padding:20px}.stop-bubble small,.stop-reason small{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:900;margin-bottom:5px}.stop-bubble strong{font-size:18px;line-height:1.45}.stop-sign{width:82px;height:82px;margin:auto;background:#b94f48;color:#fff;clip-path:polygon(29% 0,71% 0,100% 29%,100% 71%,71% 100%,29% 100%,0 71%,0 29%);display:grid;place-items:center;font-weight:900;font-size:14px;box-shadow:0 8px 20px rgba(185,79,72,.18)}.stop-reason{border-left:4px solid var(--violet);padding:9px 0 9px 16px}.stop-reason strong{line-height:1.45}
+.three-step-alert{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}.alert-step{border:1px solid var(--line);border-radius:15px;padding:16px;background:#faf9fb}.alert-step span{width:28px;height:28px;border-radius:9px;background:var(--violet);color:#fff;display:grid;place-items:center;font-size:11px;font-weight:900;margin-bottom:13px}.alert-step strong{display:block;font-size:15px}.alert-step p{font-size:12px;color:var(--muted);line-height:1.4;margin-bottom:0}
+.good-question{border:1px solid #d7cde2;background:#f8f5fb;border-radius:15px;padding:16px 18px}.good-question small{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:900;margin-bottom:7px}.good-question blockquote{margin:0;border-left:3px solid var(--coral);padding-left:14px;line-height:1.5;font-size:15px}
+
+@media(max-width:900px){
+  .resource-shelf{grid-template-columns:1fr 1fr}.authority-trap,.competence-compare,.stop-scenario,.three-step-alert{grid-template-columns:1fr}.trap-symbol{min-height:28px}.stop-sign{margin:4px auto}
+}
+@media(max-width:620px){.resource-shelf{grid-template-columns:1fr}}
+
+/* ===== v1.0 : synthèse et conclusion, écrans 27 à 31 ===== */
+.four-cases-summary{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:23px}.summary-case{display:flex;gap:13px;align-items:center;border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:#fff}.summary-initial{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;color:#fff;font-weight:900;flex:0 0 38px}.sc-commune .summary-initial{background:#806e99}.sc-province .summary-initial{background:#b4665f}.sc-nc .summary-initial{background:#58747a}.sc-ep .summary-initial{background:#735f83}.summary-case small{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:900;margin-bottom:3px}.summary-case strong{font-size:14px;line-height:1.35}
+.method-3times{display:grid;grid-template-columns:1.35fr .8fr 1fr;gap:13px}.method-time{border:1px solid var(--line);border-radius:17px;padding:17px;min-height:245px}.mt-before{background:#f8f5fb}.mt-during{background:#fff}.mt-after{background:#fff7f5}.mt-head{display:flex;gap:11px;align-items:center;padding-bottom:12px;border-bottom:1px solid rgba(90,70,110,.12)}.mt-head>span{font-size:12px;font-weight:900;color:var(--coral)}.mt-head small{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:900}.mt-head strong{font-size:17px}.method-time ul{margin:14px 0 0;padding:0;list-style:none}.method-time li{padding:6px 0 6px 16px;position:relative;font-size:13px;line-height:1.35}.method-time li:before{content:"";position:absolute;left:0;top:13px;width:6px;height:6px;border-radius:50%;background:var(--coral)}.final-method-band{margin-top:18px}
+
+.fake-good-layout{display:grid;grid-template-columns:1.25fr .75fr;gap:20px;align-items:start}.fake-act{border:1px solid #cbc3d1;border-radius:14px;background:#fff;box-shadow:0 12px 32px rgba(56,45,72,.07);overflow:hidden}.fake-act-head{padding:18px 20px;background:#f8f5fb;border-bottom:1px solid var(--line);text-align:center}.fake-act-head small{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:900;margin-bottom:5px}.fake-act-head strong{font-size:14px;line-height:1.35}.fake-zone{position:relative;padding:14px 18px;border-bottom:1px solid var(--line)}.zone-tag{position:absolute;right:12px;top:10px;font-size:8px;text-transform:uppercase;letter-spacing:.08em;color:#968b9e;font-weight:900}.fake-zone p{margin:5px 0;font-size:13px;line-height:1.45}.fake-sign{padding:18px 22px;text-align:right;background:#faf9fb}.fake-sign small{display:block;font-size:8px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}.fake-sign strong{display:block;margin-top:6px}.fake-sign em{font-size:12px;color:#857b8a}
+.case-docs{display:grid;gap:10px}.case-docs-title{border-bottom:1px solid var(--line);padding-bottom:10px}.case-docs-title small{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:900}.case-doc{border:1px solid var(--line);border-radius:13px;padding:14px;background:#faf9fb}.case-doc span{display:inline-block;font-size:9px;text-transform:uppercase;letter-spacing:.08em;font-weight:900;color:var(--coral);margin-bottom:5px}.case-doc p{font-size:13px;line-height:1.4;margin:0}.final-check-prompt{display:flex;gap:14px;align-items:center;margin-top:18px;border-top:1px solid var(--line);padding-top:16px}.final-check-prompt span{font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--coral);font-weight:900;flex:0 0 85px}.final-check-prompt strong{font-size:17px}
+
+.autonomy-zones{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin:21px 0}.auto-zone{border-radius:17px;padding:17px;border:1px solid var(--line)}.zone-green{background:#f2f8f4;border-color:#c7ded0}.zone-orange{background:#fff9f0;border-color:#ead4b4}.zone-red{background:#fff3f2;border-color:#ebc3bf}.zone-head{display:flex;gap:10px;align-items:center;padding-bottom:12px;border-bottom:1px solid rgba(80,70,80,.1)}.zone-head>span{width:32px;height:32px;border-radius:10px;background:#fff;display:grid;place-items:center;font-weight:900}.zone-green .zone-head>span{color:#507963}.zone-orange .zone-head>span{color:#a27136}.zone-red .zone-head>span{color:#a64f49}.zone-head small{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:900}.zone-head strong{font-size:15px}.auto-zone ul{padding:0;margin:13px 0 0;list-style:none}.auto-zone li{font-size:12px;line-height:1.35;padding:5px 0 5px 15px;position:relative}.auto-zone li:before{content:"";position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:#978c9e}
+
+.checklist-sheet{border:1px solid var(--line);border-radius:18px;background:#fff;box-shadow:0 12px 30px rgba(56,45,72,.06);overflow:hidden}.checklist-head{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;background:#f8f5fb;border-bottom:1px solid var(--line)}.checklist-head small{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:900;margin-bottom:3px}.checklist-head strong{font-size:18px}.checklist-mark{width:42px;height:42px;border-radius:14px;background:var(--violet);color:#fff;display:grid;place-items:center;font-size:21px;font-weight:900}.checklist-grid{display:grid;grid-template-columns:1fr 1fr}.check-block{padding:18px 20px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}.check-block:nth-child(2n){border-right:0}.check-block:nth-child(n+3){border-bottom:0}.cb-title{display:flex;gap:9px;align-items:center;margin-bottom:12px}.cb-title span{font-size:10px;color:var(--coral);font-weight:900}.cb-title strong{font-size:15px}.check-block label{display:flex;gap:9px;align-items:flex-start;font-size:12px;line-height:1.35;margin:8px 0}.check-block input{margin-top:2px;accent-color:var(--violet)}
+.three-stop-alerts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}.three-stop-alerts>div{border:1px solid #efc5c1;border-radius:14px;background:#fff5f4;padding:14px}.three-stop-alerts span{display:inline-block;background:#b75049;color:#fff;border-radius:6px;padding:3px 6px;font-size:8px;font-weight:900;letter-spacing:.08em;margin-bottom:8px}.three-stop-alerts strong{display:block;font-size:13px}.three-stop-alerts small{display:block;color:var(--muted);font-size:11px;line-height:1.35;margin-top:4px}
+
+.final-hero{display:grid;grid-template-columns:1.12fr .88fr;gap:24px;align-items:center}.final-message{padding-left:4px}.final-question,.final-shift{font-size:13px;color:var(--muted);margin:5px 0;text-transform:uppercase;letter-spacing:.06em;font-weight:800}.final-message blockquote{margin:8px 0 20px;padding:0;border:0;font-size:29px;line-height:1.25;font-weight:900;color:var(--violet)}.final-answer{margin-top:7px;background:#fff7f5;border-left:5px solid var(--coral);padding:17px 19px;border-radius:0 13px 13px 0;font-size:21px;font-weight:900;line-height:1.35}
+.final-method-wheel{width:285px;height:285px;position:relative;margin:auto;border:1px dashed #d3cadb;border-radius:50%}.wheel-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:100px;height:100px;border-radius:50%;background:var(--violet);color:#fff;display:grid;place-items:center;text-align:center;font-weight:900;line-height:1.05;box-shadow:0 10px 25px rgba(80,60,100,.18)}.wheel-center small{font-size:11px;font-weight:700}.wheel-item{position:absolute;background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 10px;font-size:10px;font-weight:900;box-shadow:0 5px 15px rgba(56,45,72,.06)}.wi1{left:50%;top:10px;transform:translateX(-50%)}.wi2{right:-5px;top:78px}.wi3{right:15px;bottom:42px}.wi4{left:10px;bottom:42px}.wi5{left:-12px;top:78px}
+.final-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px}.final-card{border:1px solid var(--line);border-radius:15px;padding:15px 17px;background:#faf9fb}.final-card>span{display:inline-grid;place-items:center;width:27px;height:27px;border-radius:9px;background:var(--coral);color:#fff;font-size:10px;font-weight:900;margin-bottom:10px}.final-card strong{display:block;font-size:16px}.final-card p{font-size:12px;color:var(--muted);line-height:1.4;margin-bottom:0}.closing-sentence{display:flex;align-items:center;gap:13px;margin:24px 0;text-align:center}.closing-line{height:1px;background:var(--line);flex:1}.closing-sentence strong{max-width:570px;font-size:17px;line-height:1.4;color:var(--violet)}.completion-note{display:flex;justify-content:center;gap:10px;align-items:center}.completion-note>span{width:34px;height:34px;border-radius:50%;background:#6f9b81;color:#fff;display:grid;place-items:center;font-weight:900}.completion-note strong{display:block}.completion-note small{display:block;color:var(--muted);font-size:11px}
+
+@media(max-width:900px){
+  .method-3times,.fake-good-layout,.autonomy-zones,.final-hero,.final-3{grid-template-columns:1fr}
+  .four-cases-summary{grid-template-columns:1fr}
+  .checklist-grid{grid-template-columns:1fr}.check-block{border-right:0!important;border-bottom:1px solid var(--line)!important}.check-block:last-child{border-bottom:0!important}
+  .three-stop-alerts{grid-template-columns:1fr}.final-method-wheel{margin-top:15px}
+}
+
+
+/* ===== v1.1 : intégration des visuels maîtres ===== */
+.master-visual-wrap{display:flex;align-items:center;justify-content:center;min-height:0}
+.master-visual{display:block;width:100%;height:auto;border-radius:18px;border:1px solid var(--line);box-shadow:0 16px 38px rgba(56,45,72,.10)}
+.opening-master{aspect-ratio:16/9;object-fit:cover}
+
+.case-photo-frame{
+  width:126px;height:104px;border-radius:16px;overflow:hidden;flex:0 0 126px;
+  border:1px solid var(--line);box-shadow:0 7px 18px rgba(56,45,72,.08);background:#eee;
+}
+.case-photo{display:block;width:100%;height:100%;object-fit:cover}
+.province-case .case-photo{object-position:50% 38%}
+.nc-case .case-photo{object-position:44% 38%}
+.ep-case .case-photo{object-position:52% 36%}
+
+.synthesis-master-wrap{margin:2px 0 20px}
+.synthesis-master{aspect-ratio:16/7;object-fit:cover;object-position:center 45%}
+
+@media(max-width:820px){
+  .case-photo-frame{width:112px;height:98px;flex-basis:112px}
+  .synthesis-master{aspect-ratio:16/9}
+}
+
+/* ===== v1.2 : outils opérationnels de rédaction ===== */
+.act-type-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0}
+.act-type-card{border:1px solid var(--line);border-radius:16px;padding:17px;background:#fff;position:relative}
+.act-type-card:nth-child(1){background:#f8f5fb}.act-type-card:nth-child(3){background:#fff7f5}
+.act-type-icon{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:#fff;border:1px solid var(--line);color:var(--violet);font-size:19px;font-weight:900;margin-bottom:13px}
+.act-type-card small{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:900}
+.act-type-card h3{font-size:16px;margin:4px 0 7px}.act-type-card p{font-size:12px;line-height:1.4;color:var(--muted);margin:0}
+.act-type-warning{display:flex;gap:13px;align-items:flex-start;padding:15px 17px;border-left:4px solid var(--coral);background:#fff7f5;border-radius:0 14px 14px 0}
+.act-type-warning>span{width:30px;height:30px;border-radius:50%;background:var(--coral);color:#fff;display:grid;place-items:center;font-weight:900;flex:0 0 30px}
+.act-type-warning p{margin:4px 0 0;color:var(--muted)}
+
+.anatomy-layout{display:grid;grid-template-columns:1.25fr .75fr;gap:20px;align-items:start}
+.anatomy-paper{border:1px solid #cbc3d1;border-radius:15px;background:#fff;overflow:hidden;box-shadow:0 10px 28px rgba(56,45,72,.06)}
+.an-zone{display:grid;grid-template-columns:32px 1fr;gap:12px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.an-zone:last-child{border-bottom:0}.an-zone>span{width:27px;height:27px;border-radius:9px;background:#ede8f2;color:var(--violet);display:grid;place-items:center;font-size:10px;font-weight:900}
+.an-zone small{display:block;font-size:8px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:900;margin-bottom:2px}.an-zone strong{font-size:13px;line-height:1.35}
+.az-device{background:#fff7f5}.az-device>span{background:var(--coral);color:#fff}.az-sign{background:#faf9fb}
+.anatomy-side{display:grid;gap:14px}.anatomy-rule{display:flex;gap:11px;align-items:center;border-bottom:1px solid var(--line);padding-bottom:12px}.anatomy-rule small{display:block;font-size:8px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:900}
+.anatomy-side>p{font-size:14px;line-height:1.5;color:#595260;margin:0}.anatomy-test{padding:15px;border-radius:14px;background:#f8f5fb;border:1px solid #d9cfe4}.anatomy-test small{display:block;text-transform:uppercase;font-size:8px;letter-spacing:.08em;color:var(--coral);font-weight:900;margin-bottom:5px}.anatomy-test strong{font-size:14px;line-height:1.4}
+
+.device-before-after{display:grid;grid-template-columns:1fr 55px 1fr;gap:12px;align-items:stretch}
+.device-card{border:1px solid var(--line);border-radius:17px;padding:19px;position:relative}.device-weak{background:#faf9fb}.device-strong{background:#f3faf6;border-color:#c6dfd0}
+.device-badge{display:inline-block;border-radius:999px;padding:5px 9px;font-size:9px;text-transform:uppercase;letter-spacing:.08em;font-weight:900;background:#ece8ef;color:#685d71;margin-bottom:14px}.device-strong .device-badge{background:#d8eee1;color:#47735a}
+.device-card blockquote{margin:0;font-size:18px;line-height:1.5;border-left:3px solid #bcb2c3;padding-left:14px}.missing-points{display:flex;gap:6px;flex-wrap:wrap;margin-top:18px}.missing-points span{border-radius:999px;background:#fff3f2;border:1px solid #efcbc7;color:#9e534c;padding:5px 8px;font-size:10px;font-weight:800}
+.device-arrow{display:grid;place-items:center;color:var(--coral);font-size:30px;font-weight:900}.device-structure{display:grid;gap:8px}.device-structure>div{display:grid;grid-template-columns:92px 1fr;gap:9px;border-top:1px solid rgba(70,100,80,.12);padding-top:8px}.device-structure small{font-size:9px;text-transform:uppercase;letter-spacing:.07em;color:#5f806b;font-weight:900}.device-structure strong{font-size:12px;line-height:1.35}
+.device-rule-band{display:flex;gap:13px;align-items:center;margin-top:18px;padding:13px 16px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.device-rule-band>span{width:38px;height:38px;border-radius:12px;background:var(--violet);color:#fff;display:grid;place-items:center;font-size:11px;font-weight:900}
+.relecture-brief{display:flex;gap:14px;align-items:center;margin-bottom:16px;padding:14px 16px;border-radius:14px;background:#f8f5fb;border:1px solid #d9cfe4}.relecture-time{background:var(--violet);color:#fff;border-radius:999px;padding:6px 9px;font-size:10px;font-weight:900;white-space:nowrap}.relecture-brief small{display:block;font-size:8px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:900;margin-bottom:3px}.relecture-brief strong{font-size:13px;line-height:1.4}
+
+@media(max-width:820px){
+  .act-type-grid,.anatomy-layout,.device-before-after{grid-template-columns:1fr}
+  .device-arrow{transform:rotate(90deg);min-height:30px}
+}
+
+
+/* ===== v1.3 : passe graphique générale + images bord à bord ===== */
+:root{
+  --bg:#f3f1f6;
+  --paper:#ffffff;
+  --ink:#282331;
+  --muted:#726b7e;
+  --violet:#5d4786;
+  --violet-2:#7862a0;
+  --violet-soft:#f0ebf6;
+  --coral:#e8776f;
+  --coral-deep:#c85e57;
+  --coral-soft:#fff0ee;
+  --line:#e4dfea;
+  --line-strong:#d7d0df;
+  --ok:#31785b;
+  --warn:#9b6523;
+  --danger:#a94949;
+  --focus:#245fc2;
+  --shadow-sm:0 6px 18px rgba(53,43,67,.06);
+  --shadow-md:0 18px 48px rgba(53,43,67,.10);
+}
+
+body{
+  background:
+    radial-gradient(circle at 92% 8%, rgba(232,119,111,.08), transparent 22rem),
+    radial-gradient(circle at 5% 82%, rgba(93,71,134,.07), transparent 26rem),
+    var(--bg);
+}
+
+.stage{width:min(1100px,100%);padding:32px 34px 126px}
+.screen{
+  border:1px solid rgba(215,208,223,.95);
+  border-radius:24px;
+  min-height:650px;
+  box-shadow:var(--shadow-md);
+  background:rgba(255,255,255,.99);
+  animation:screenIn .20s ease-out;
+}
+@keyframes screenIn{from{opacity:.7;transform:translateY(5px)}to{opacity:1;transform:none}}
+
+.hero-band{
+  position:relative;
+  padding:29px 38px 22px;
+  background:linear-gradient(180deg,#fff 0%,#fdfcfe 100%);
+}
+.hero-band::after{
+  content:"";position:absolute;left:38px;right:38px;bottom:-1px;height:1px;
+  background:linear-gradient(90deg,var(--coral) 0 52px,var(--line) 52px 100%);
+}
+h1{font-size:38px;letter-spacing:-.018em;max-width:900px}
+.content{padding:32px 38px 38px}
+
+.topbar{
+  background:rgba(255,255,255,.94);
+  box-shadow:0 4px 18px rgba(53,43,67,.035);
+}
+.progress{height:4px;background:#eeeaf2}
+.progress>div{background:linear-gradient(90deg,var(--violet),#8b70ad 62%,var(--coral))}
+.course strong{color:#383042}
+.where strong{font-weight:900}
+
+.section-btn{transition:background .15s,color .15s,transform .15s}
+.section-btn:hover{background:#f7f4fa;transform:translateX(2px)}
+.section-btn.active{background:linear-gradient(90deg,#f5f0fa,#fbf9fc)}
+.section-btn.active::before{width:3px;top:8px;bottom:8px;background:var(--coral)}
+
+.primary{
+  background:linear-gradient(135deg,var(--violet),#725b9a);
+  box-shadow:0 7px 18px rgba(93,71,134,.18);
+  transition:transform .14s,box-shadow .14s,filter .14s;
+}
+.primary:not(:disabled):hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(93,71,134,.23);filter:saturate(1.05)}
+.secondary{box-shadow:0 3px 10px rgba(53,43,67,.035);transition:transform .14s,border-color .14s,background .14s}
+.secondary:hover{transform:translateY(-1px);border-color:#cfc6d8;background:#fcfbfd}
+
+.choice,.hotspot{
+  box-shadow:0 3px 11px rgba(53,43,67,.025);
+  transition:border-color .14s,background .14s,box-shadow .14s,transform .14s;
+}
+.choice:hover,.hotspot:hover{box-shadow:0 8px 20px rgba(53,43,67,.07);transform:translateY(-1px)}
+.choice.selected,.hotspot.sel{box-shadow:0 8px 22px rgba(93,71,134,.10)}
+.choice-key{background:linear-gradient(180deg,#f4f1f6,#ece8f0);color:#5d5267}
+
+.card,.mission-card,.logic-panel,.flow-step,.cluster,.dossier-piece,.regime-card,.reason-node,
+.resource-card,.competence-box,.method-time,.auto-zone,.final-card,.checklist-sheet{
+  box-shadow:var(--shadow-sm);
+}
+
+.callout,.risk-strip,.key-sentence,.manager-request,.gap-alert,.lifecycle-note,.act-type-warning{
+  box-shadow:0 5px 16px rgba(53,43,67,.035);
+}
+
+/* --- Visuels maîtres : le placeholder est intégralement occupé --- */
+.master-visual-wrap{
+  width:100%;
+  overflow:hidden;
+  border-radius:19px;
+  border:1px solid var(--line);
+  background:#ece8ef;
+  box-shadow:0 16px 38px rgba(56,45,72,.11);
+}
+.master-visual{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border:0;
+  border-radius:0;
+  box-shadow:none;
+}
+.intro-layout{grid-template-columns:minmax(0,1.04fr) minmax(350px,.96fr);gap:36px}
+.intro-visual.master-visual-wrap{
+  min-height:0;
+  aspect-ratio:6/5;
+}
+.opening-master{object-position:50% 48%}
+
+/* Les personnages deviennent de vrais visuels de dossier, plus de mini-vignettes. */
+.case-opening{grid-template-columns:minmax(285px,.82fr) minmax(0,1.18fr);gap:24px}
+.case-person{
+  display:grid;
+  grid-template-columns:1fr;
+  align-content:start;
+  gap:0;
+  padding:0;
+  overflow:hidden;
+  background:#fff;
+  box-shadow:var(--shadow-sm);
+}
+.case-photo-frame{
+  width:100%;
+  height:auto;
+  aspect-ratio:6/5;
+  border:0;
+  border-bottom:1px solid var(--line);
+  border-radius:0;
+  box-shadow:none;
+  background:#eae6ed;
+  flex-basis:auto;
+}
+.case-photo{width:100%;height:100%;object-fit:cover;display:block}
+.person-caption{padding:15px 17px 17px}
+.person-caption h3{font-size:22px}
+.person-caption p{font-size:13px}
+.province-case .case-photo,.nc-case .case-photo,.ep-case .case-photo{object-position:center center}
+
+/* Le visuel de relecture reste généreux sans devenir une bannière trop basse. */
+.synthesis-master-wrap{
+  width:min(720px,100%);
+  margin:4px auto 22px;
+  aspect-ratio:6/5;
+  overflow:hidden;
+  border-radius:19px;
+  border:1px solid var(--line);
+  background:#ece8ef;
+  box-shadow:var(--shadow-md);
+}
+.synthesis-master{width:100%;height:100%;aspect-ratio:auto;object-fit:cover;object-position:center}
+
+/* Hiérarchie plus éditoriale */
+.lead{color:#4a4351}
+.intro-hook{font-size:31px;letter-spacing:-.01em}
+.mission-card{border-color:#d7cbe5;background:linear-gradient(135deg,#f6f2fa 0%,#fff 72%)}
+.mission-label,.decision-label,.role-tag{color:var(--coral-deep)}
+.key-mark,.risk-symbol,.outside-mark,.gap-icon{box-shadow:0 5px 14px rgba(232,119,111,.18)}
+.question-chips span{border-color:#e1dbe6;box-shadow:0 2px 8px rgba(53,43,67,.025)}
+.fake-act,.act-paper,.signature-paper,.decision-sheet{box-shadow:0 14px 36px rgba(53,43,67,.085)}
+
+/* Navigation basse plus légère et alignée au contenu. */
+.nav{
+  background:rgba(255,255,255,.95);
+  box-shadow:0 -7px 24px rgba(53,43,67,.045);
+}
+.nav-inner{width:min(1100px,100%)}
+
+/* Mobile */
+@media(max-width:820px){
+  .stage{padding:18px 12px 112px}
+  .screen{border-radius:16px}
+  .hero-band,.content{padding-left:21px;padding-right:21px}
+  .hero-band::after{left:21px;right:21px}
+  h1{font-size:30px}
+  .intro-layout{grid-template-columns:1fr}
+  .intro-visual.master-visual-wrap{aspect-ratio:4/3}
+  .case-opening{grid-template-columns:1fr}
+  .case-photo-frame{aspect-ratio:16/10}
+  .synthesis-master-wrap{aspect-ratio:4/3}
+}
+
+/* ===== v1.4 : intégration des 6 infographies pédagogiques ===== */
+.pedago-info-wrap{
+  width:min(940px,100%);
+  margin:24px auto 26px;
+  padding:10px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:20px;
+  box-shadow:0 14px 34px rgba(53,43,67,.08);
+}
+.pedago-info{display:block;width:100%;height:auto;border-radius:14px}
+.pedago-info-caption{
+  padding:10px 10px 4px;
+  font-size:13px;color:var(--muted);text-align:center;line-height:1.4;
+}
+@media(max-width:820px){
+  .pedago-info-wrap{margin:18px auto 20px;padding:6px;border-radius:15px}
+  .pedago-info{border-radius:10px}
+}
+</style>
+<script>
+var SCORM = (function(){
+  var api=null, initialized=false;
+  function findAPI(win){
+    var tries=0;
+    while(win && tries<10){
+      if(win.API) return win.API;
+      if(win.parent===win) break;
+      win=win.parent; tries++;
+    }
+    if(window.opener) {
+      try { return findAPI(window.opener); } catch(e){}
+    }
+    return null;
+  }
+  function init(){
+    api=findAPI(window);
+    if(!api) return false;
+    try{
+      initialized=(api.LMSInitialize("")==="true");
+      return initialized;
+    }catch(e){return false;}
+  }
+  function get(k){ if(!initialized) return ""; try{return api.LMSGetValue(k)||"";}catch(e){return "";}}
+  function set(k,v){ if(!initialized) return false; try{return api.LMSSetValue(k,String(v))==="true";}catch(e){return false;}}
+  function commit(){ if(initialized){try{api.LMSCommit("");}catch(e){}}}
+  function finish(){ if(initialized){try{api.LMSFinish("");}catch(e){} initialized=false;}}
+  return {init:init,get:get,set:set,commit:commit,finish:finish};
+})();
+</script>
+</head>
+<body>
+<div id="app">
+  <aside class="rail" aria-label="Repères de la formation">
+    <div class="rail-title">Parcours</div>
+    <div id="railList"></div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <div class="toprow">
+        <button id="menuBtn" class="secondary mobile-menu" aria-label="Ouvrir le sommaire">Sommaire</button>
+        <div class="course">
+          <small>Formation</small>
+          <strong>Rédiger et sécuriser un acte administratif en Nouvelle-Calédonie</strong>
+        </div>
+        <div class="where">
+          <strong id="sectionName"></strong>
+          <span id="screenCount"></span>
+        </div>
+      </div>
+      <div class="progress" aria-label="Progression globale"><div id="bar"></div></div>
+    </header>
+
+    <main class="stage"><div id="screenHost"></div></main>
+
+    <nav class="nav" aria-label="Navigation principale">
+      <div class="nav-inner">
+        <button id="prev" class="secondary">← Précédent</button>
+        <div class="nav-center">Parcours principal</div>
+        <button id="next" class="primary">Suivant →</button>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<div id="backdrop" class="backdrop"></div>
+<aside id="drawer" class="drawer" aria-label="Sommaire mobile">
+  <div class="rail-title">Parcours</div>
+  <div id="drawerList"></div>
+</aside>
+
+<script>
+const screens = [{"eyebrow": "Bienvenue", "title": "Rédiger et sécuriser un acte administratif en Nouvelle-Calédonie", "body": "\n<div class=\"intro-layout\">\n  <div class=\"intro-copy\">\n    <p class=\"intro-hook\">Un acte administratif ne commence pas avec <strong>« Vu… »</strong>.</p>\n    <p class=\"lead\">Il commence par une série de vérifications : <strong>qui peut décider, sur quel fondement, selon quelle procédure et avec quelles formalités ensuite.</strong></p>\n\n    <div class=\"mission-card\">\n      <div class=\"mission-label\">Votre mission</div>\n      <div class=\"mission-text\">Préparer un projet d’acte fiable, repérer les points à sécuriser et savoir quand demander une validation complémentaire.</div>\n    </div>\n\n    <div class=\"intro-meta\">\n      <span><strong>≈ 55 min</strong><small>durée indicative</small></span>\n      <span><strong>4 dossiers</strong><small>situations professionnelles</small></span>\n      <span><strong>1 méthode</strong><small>réutilisable au quotidien</small></span>\n    </div>\n  </div>\n\n  <div class=\"intro-visual master-visual-wrap\">\n      <img class=\"master-visual opening-master\" src=\"assets/01_ouverture.webp\"\n           alt=\"Dossier administratif en cours d’analyse sur un bureau, entouré de plusieurs pièces utiles à sa vérification.\">\n    </div>\n</div>\n\n<div class=\"start-note\">\n  <span class=\"start-dot\"></span>\n  <span>Vous n’aurez pas à mémoriser des numéros d’articles. Vous apprendrez surtout <strong>quoi vérifier et dans quel ordre</strong>.</span>\n</div>\n"}, {"eyebrow": "Mise en situation", "title": "La demande tombe. Vous faites quoi en premier ?", "body": "\n<div class=\"message-stage\">\n  <div class=\"message-head\">\n    <span class=\"status-dot\"></span>\n    <div><strong>Votre responsable</strong><small>Message reçu à l’instant</small></div>\n    <span class=\"urgent-pill\">À traiter aujourd’hui</span>\n  </div>\n  <div class=\"message-bubble\">\n    « Nous avons pris la décision. Peux-tu préparer l’acte et me le transmettre pour signature aujourd’hui ? »\n  </div>\n</div>\n\n<div class=\"old-file-row\">\n  <div class=\"old-file-icon\" aria-hidden=\"true\">\n    <span></span><span></span><span></span>\n  </div>\n  <div>\n    <strong>Bonne nouvelle ?</strong>\n    <p>Sur le serveur, vous retrouvez un acte très proche, préparé deux ans auparavant.</p>\n  </div>\n</div>\n\n<div class=\"decision-prompt\">\n  <span class=\"decision-label\">Votre premier réflexe</span>\n  <strong>Que faites-vous avant de commencer à rédiger ?</strong>\n</div>\n", "activity": {"type": "choice", "choices": ["J’ouvre l’ancien acte et je commence à l’adapter.", "Je commence par actualiser les visas.", "Je vérifie d’abord ce que nous voulons décider, qui peut le décider et sur quel fondement."], "correct": 2, "feedback": ["L’ancien acte pourra être utile ensuite. Mais il ne prouve ni la compétence, ni l’actualité des textes, ni que la situation est réellement identique.", "Les visas viennent après. Avant de rechercher les références à citer, il faut savoir quelle décision doit être prise et par quelle autorité.", "C’est le bon réflexe : vous sécurisez d’abord le cadre de la décision. L’ancien acte pourra ensuite servir de support de rédaction."]}}, {"eyebrow": "Premier repère", "title": "Le modèle aide à rédiger. Il ne sécurise pas l’acte.", "body": "\n<div class=\"logic-split\">\n  <div class=\"logic-panel model-panel\">\n    <div class=\"logic-label\">Le modèle peut vous aider</div>\n    <h3>Pour gagner du temps</h3>\n    <ul class=\"clean-list\">\n      <li>retrouver une structure connue ;</li>\n      <li>reprendre une mise en forme ;</li>\n      <li>repérer les rubriques à renseigner.</li>\n    </ul>\n  </div>\n\n  <div class=\"logic-arrow\" aria-hidden=\"true\">≠</div>\n\n  <div class=\"logic-panel secure-panel\">\n    <div class=\"logic-label\">Mais vous devez vérifier</div>\n    <h3>Ce qui fonde réellement l’acte</h3>\n    <ul class=\"clean-list\">\n      <li>la compétence de l’administration ;</li>\n      <li>l’autorité qui peut décider ;</li>\n      <li>les textes et délégations en vigueur ;</li>\n      <li>les formalités à accomplir.</li>\n    </ul>\n  </div>\n</div>\n\n<div class=\"key-sentence\">\n  <span class=\"key-mark\">!</span>\n  <div><strong>Le piège du copier-coller :</strong> un document peut sembler familier alors que son cadre juridique a changé.</div>\n</div>\n\n<div class=\"micro-question\">\n  <strong>Le bon usage d’un ancien acte ?</strong>\n  <span>Un support de rédaction <em>après</em> avoir vérifié qu’il reste pertinent.</span>\n</div>\n"}, {"eyebrow": "La logique du travail", "title": "Un acte se sécurise avant, pendant et après la rédaction", "body": "\n<div class=\"flowline\">\n  <div class=\"flow-step before\">\n    <div class=\"flow-icon\">1</div>\n    <div class=\"flow-text\">\n      <span class=\"flow-kicker\">Avant</span>\n      <h3>Je vérifie</h3>\n      <p>La décision attendue, la compétence, l’autorité et la procédure.</p>\n    </div>\n  </div>\n\n  <div class=\"flow-connector\" aria-hidden=\"true\">→</div>\n\n  <div class=\"flow-step during\">\n    <div class=\"flow-icon\">2</div>\n    <div class=\"flow-text\">\n      <span class=\"flow-kicker\">Pendant</span>\n      <h3>Je rédige</h3>\n      <p>Des fondements utiles, une motivation si nécessaire et un dispositif clair.</p>\n    </div>\n  </div>\n\n  <div class=\"flow-connector\" aria-hidden=\"true\">→</div>\n\n  <div class=\"flow-step after\">\n    <div class=\"flow-icon\">3</div>\n    <div class=\"flow-text\">\n      <span class=\"flow-kicker\">Après</span>\n      <h3>Je rends l’acte effectif</h3>\n      <p>Signature, contreseing éventuel, notification, publication ou transmission.</p>\n    </div>\n  </div>\n</div>\n\n<div class=\"risk-strip\">\n  <div class=\"risk-symbol\">!</div>\n  <div>\n    <strong>Un acte peut être impeccable à l’écran et rester juridiquement fragile.</strong>\n    <p>La qualité de la rédaction ne compense pas une mauvaise compétence, une délégation absente ou une formalité oubliée.</p>\n  </div>\n</div>\n<div class=\"pedago-info-wrap\"><img class=\"pedago-info\" src=\"assets/info_01_cycle_complet.webp\" alt=\"Infographie du cycle complet d’un acte : besoin, compétence, rédaction, signature, formalités et caractère exécutoire.\"><div class=\"pedago-info-caption\">Repère visuel : le cycle ne s’arrête pas à la signature.</div></div>"}, {"eyebrow": "Votre fil rouge", "title": "9 questions, regroupées en 3 temps de travail", "body": "\n<p class=\"lead compact-lead\">Vous n’avez pas neuf règles à apprendre. Vous avez <strong>neuf questions à utiliser au bon moment</strong>.</p>\n\n<div class=\"questions-cluster\">\n  <section class=\"cluster cluster-a\">\n    <div class=\"cluster-head\">\n      <span class=\"cluster-num\">01</span>\n      <div><small>Avant de rédiger</small><h3>Je cadre la décision</h3></div>\n    </div>\n    <div class=\"question-chips\">\n      <span>Que veut-on réellement décider ?</span>\n      <span>Quelle administration est compétente ?</span>\n      <span>Quelle autorité peut décider ?</span>\n      <span>Quelle est la nature de l’acte ?</span>\n      <span>Quelle procédure faut-il respecter ?</span>\n      <span>Quels textes fondent la décision ?</span>\n    </div>\n  </section>\n\n  <section class=\"cluster cluster-b\">\n    <div class=\"cluster-head\">\n      <span class=\"cluster-num\">02</span>\n      <div><small>Pendant</small><h3>Je construis l’acte</h3></div>\n    </div>\n    <div class=\"question-chips\">\n      <span>Que faut-il expliquer et décider ?</span>\n    </div>\n  </section>\n\n  <section class=\"cluster cluster-c\">\n    <div class=\"cluster-head\">\n      <span class=\"cluster-num\">03</span>\n      <div><small>Avant de transmettre</small><h3>Je sécurise la suite</h3></div>\n    </div>\n    <div class=\"question-chips\">\n      <span>Qui doit signer ?</span>\n      <span>Que reste-t-il à faire après la signature ?</span>\n    </div>\n  </section>\n</div>\n\n<div class=\"remember-band\">\n  <span class=\"remember-eye\">◎</span>\n  <div><strong>Votre repère pour toute la formation :</strong> à chaque dossier, demandez-vous simplement <em>« où en suis-je dans ces trois temps ? »</em></div>\n</div>\n<div class=\"pedago-info-wrap\"><img class=\"pedago-info\" src=\"assets/info_02_9_questions.webp\" alt=\"Infographie des neuf questions regroupées en trois temps de travail.\"></div>"}, {"eyebrow": "Votre boîte à outils", "title": "Quel acte dois-je préparer ?", "body": "\n<p class=\"lead compact-lead\">Avant de chercher un modèle, faites un <strong>premier tri fonctionnel</strong>. Il ne remplace pas la vérification juridique, mais il vous aide à poser la bonne question.</p>\n\n<div class=\"act-type-grid\">\n  <article class=\"act-type-card\">\n    <div class=\"act-type-icon\">◎</div>\n    <small>Décision collective</small>\n    <h3>Une assemblée doit décider</h3>\n    <p>Je recherche d’abord le texte qui attribue la compétence à l’organe délibérant et la forme d’acte prévue.</p>\n  </article>\n\n  <article class=\"act-type-card\">\n    <div class=\"act-type-icon\">⚙</div>\n    <small>Règle générale</small>\n    <h3>Une autorité fixe une règle</h3>\n    <p>Je vérifie son pouvoir réglementaire, le champ de la mesure et les formalités de publicité.</p>\n  </article>\n\n  <article class=\"act-type-card\">\n    <div class=\"act-type-icon\">●</div>\n    <small>Situation individuelle</small>\n    <h3>Une personne ou un dossier est visé</h3>\n    <p>Je vérifie notamment compétence, procédure, motivation éventuelle, notification et recours.</p>\n  </article>\n\n  <article class=\"act-type-card\">\n    <div class=\"act-type-icon\">↔</div>\n    <small>Accord entre parties</small>\n    <h3>Il faut organiser des engagements réciproques</h3>\n    <p>Je vérifie si un acte unilatéral suffit réellement ou si un autre instrument, par exemple conventionnel, est requis.</p>\n  </article>\n</div>\n\n<div class=\"act-type-warning\">\n  <span>!</span>\n  <div><strong>Le titre du modèle ne décide jamais à votre place.</strong><p>Si vous hésitez entre plusieurs formes d’acte, le bon réflexe est de revenir au texte qui attribue la compétence ou de faire valider la qualification.</p></div>\n</div>\n\n<div class=\"decision-prompt\"><span class=\"decision-label\">Situation</span><strong>Votre service doit refuser une autorisation demandée par une association identifiée. Quel est votre premier raisonnement ?</strong></div>\n", "activity": {"type": "choice", "choices": ["Je cherche d’abord un modèle nommé « arrêté ».", "Je traite d’abord la situation comme une décision visant un dossier identifié, puis je vérifie la forme prévue par les textes applicables.", "Je choisis une délibération parce qu’elle offre davantage de sécurité."], "correct": 1, "feedback": ["Le nom du fichier ne permet pas de déterminer la bonne forme juridique.", "Exact. On part de l’effet de la décision et des textes applicables, pas du modèle disponible.", "Le niveau de sécurité ne dépend pas du caractère plus ou moins solennel du document."]}}, {"eyebrow": "Votre boîte à outils", "title": "Anatomie d’un acte : à quoi sert chaque partie ?", "body": "\n<div class=\"anatomy-layout\">\n  <div class=\"anatomy-paper\">\n    <div class=\"an-zone az-title\"><span>1</span><div><small>Objet / titre</small><strong>Identifier clairement ce qui est décidé</strong></div></div>\n    <div class=\"an-zone az-visas\"><span>2</span><div><small>Visas / références</small><strong>Afficher les principaux fondements et éléments de procédure utiles</strong></div></div>\n    <div class=\"an-zone az-motifs\"><span>3</span><div><small>Motifs / considérants</small><strong>Expliquer le raisonnement lorsque la décision doit ou mérite d’être motivée</strong></div></div>\n    <div class=\"an-zone az-device\"><span>4</span><div><small>Dispositif / articles</small><strong>Dire précisément ce que l’administration décide</strong></div></div>\n    <div class=\"an-zone az-sign\"><span>5</span><div><small>Signature</small><strong>Identifier l’autorité qui engage l’administration et sa délégation éventuelle</strong></div></div>\n    <div class=\"an-zone az-after\"><span>6</span><div><small>Suite de l’acte</small><strong>Prévoir notification, publication, transmission ou mentions de recours selon le cas</strong></div></div>\n  </div>\n\n  <div class=\"anatomy-side\">\n    <div class=\"anatomy-rule\">\n      <span class=\"legal-symbol\">◎</span>\n      <div><small>Le bon réflexe</small><strong>Chaque bloc doit avoir une fonction.</strong></div>\n    </div>\n    <p>Un acte n’est pas sécurisé parce qu’il contient beaucoup de visas ou plusieurs pages. Il l’est lorsque chaque élément utile est présent, exact et cohérent avec la décision.</p>\n\n    <div class=\"anatomy-test\">\n      <small>Test rapide</small>\n      <strong>Si je masque le titre du document, suis-je encore capable de comprendre qui décide quoi, pourquoi et avec quel effet ?</strong>\n    </div>\n  </div>\n</div>\n\n<div class=\"pedago-info-wrap\"><img class=\"pedago-info\" src=\"assets/info_03_anatomie.webp\" alt=\"Infographie de l’anatomie d’un acte administratif : objet, visas, motivation, dispositif, signature et formalités.\"></div><div class=\"decision-prompt\"><span class=\"decision-label\">Repérage</span><strong>Quelle partie produit directement l’effet juridique principal de la décision ?</strong></div>\n", "activity": {"type": "choice", "choices": ["Les visas.", "Le dispositif / les articles qui énoncent la décision.", "La signature, à elle seule."], "correct": 1, "feedback": ["Les visas contribuent à montrer les fondements, mais ils n’énoncent pas à eux seuls ce qui est décidé.", "Exact. Le dispositif doit traduire précisément la décision et ses effets.", "La signature est indispensable au circuit de l’acte, mais elle ne remplace pas un dispositif précis."]}}, {"eyebrow": "Votre boîte à outils", "title": "Un dispositif doit pouvoir être appliqué sans deviner", "body": "\n<div class=\"device-before-after\">\n  <section class=\"device-card device-weak\">\n    <div class=\"device-badge\">Trop flou</div>\n    <blockquote>« L’association est autorisée à utiliser la salle municipale dans le cadre de son événement. »</blockquote>\n    <div class=\"missing-points\">\n      <span>Quelle salle ?</span>\n      <span>Quelle date ?</span>\n      <span>Quels horaires ?</span>\n      <span>Quelles conditions ?</span>\n    </div>\n  </section>\n\n  <div class=\"device-arrow\" aria-hidden=\"true\">→</div>\n\n  <section class=\"device-card device-strong\">\n    <div class=\"device-badge\">Exploitable</div>\n    <div class=\"device-structure\">\n      <div><small>Bénéficiaire</small><strong>Association identifiée</strong></div>\n      <div><small>Objet / lieu</small><strong>Salle et espace concernés</strong></div>\n      <div><small>Période</small><strong>Date et horaires précis</strong></div>\n      <div><small>Conditions</small><strong>Obligations utiles et proportionnées</strong></div>\n      <div><small>Effet</small><strong>Date d’entrée en vigueur / fin de l’autorisation</strong></div>\n    </div>\n  </section>\n</div>\n\n<div class=\"device-rule-band\">\n  <span>5Q</span>\n  <div><strong>Pour relire un article :</strong> qui ? quoi ? où ? quand ? sous quelles conditions ?</div>\n</div>\n\n<div class=\"decision-prompt\"><span class=\"decision-label\">Réécriture</span><strong>Quel énoncé est le plus directement applicable par les agents chargés de l’exécution ?</strong></div>\n", "activity": {"type": "choice", "choices": ["« L’association pourra utiliser la salle prochainement selon les disponibilités. »", "« L’association X est autorisée à utiliser la salle Y le 14 novembre, de 8 h à 18 h, sous réserve du respect des conditions de sécurité annexées à la décision. »", "« L’association est autorisée dans les conditions habituelles. »"], "correct": 1, "feedback": ["« Prochainement » et « selon les disponibilités » laissent trop d’éléments indéterminés.", "Exact. L’énoncé identifie le bénéficiaire, l’objet, le lieu, la période et la condition utile.", "Une référence vague aux « conditions habituelles » oblige le lecteur à deviner ou à rechercher ailleurs ce qui s’applique."]}}, {"eyebrow": "Dossier 1 · Commune", "title": "« Il faut un arrêté pour samedi »", "body": "\n<div class=\"case-opening\">\n  <div class=\"case-person\">\n    <div class=\"case-photo-frame\"><img class=\"case-photo\" src=\"assets/02_melanie_commune.webp\" alt=\"Mélanie analyse un dossier communal avec plans et pièces administratives.\"></div>\n    <div class=\"person-caption\"><span class=\"role-tag\">Gestionnaire administrative</span><h3>Mélanie</h3><p>Elle prépare régulièrement des actes pour son service.</p></div>\n  </div>\n  <div class=\"case-context\">\n    <div class=\"case-label\">La situation</div>\n    <p>Une manifestation est organisée samedi sur la place municipale.</p>\n    <p>Le service technique souhaite <strong>interdire temporairement la circulation automobile dans une rue communale située dans l’agglomération, de 7 h à 18 h.</strong></p>\n  </div>\n</div>\n<div class=\"manager-request\"><span class=\"manager-mark\">↳</span><div><small>Message du responsable</small><strong>« Peux-tu préparer l’arrêté de circulation ? Nous en avions déjà fait un l’année dernière. »</strong></div></div>\n<div class=\"decision-prompt\"><span class=\"decision-label\">Premier réflexe</span><strong>Mélanie doit-elle commencer par l’ancien arrêté ?</strong></div>\n", "activity": {"type": "choice", "choices": ["Oui, le besoin est presque identique.", "Non, elle doit d’abord vérifier le cadre de la décision."], "correct": 1, "feedback": ["Le précédent pourra aider ensuite, mais il ne doit pas être le point de départ du raisonnement.", "Exact. Avant le modèle, Mélanie doit vérifier le besoin, la compétence et le fondement de la décision."]}}, {"eyebrow": "Dossier 1 · Commune", "title": "Avant le modèle, ouvrez le dossier", "body": "\n<p class=\"lead compact-lead\">Trois pièces suffisent déjà à orienter le raisonnement de Mélanie.</p>\n<div class=\"dossier-table\">\n  <article class=\"dossier-piece piece-mail\"><div class=\"piece-top\"><span class=\"piece-icon\">✉</span><span class=\"piece-type\">Demande du service</span></div><h3>Fermeture temporaire</h3><p>Rue des Flamboyants<br>Samedi · 7 h → 18 h</p></article>\n  <article class=\"dossier-piece piece-map\"><div class=\"piece-top\"><span class=\"piece-icon\">⌖</span><span class=\"piece-type\">Plan</span></div><h3>Localisation</h3><p>Rue communale située dans l’agglomération.</p></article>\n  <article class=\"dossier-piece piece-law\"><div class=\"piece-top\"><span class=\"piece-icon\">§</span><span class=\"piece-type\">Extrait juridique fourni</span></div><h3>Pouvoir du maire</h3><p>Dans les situations prévues par le code des communes, le maire dispose d’un pouvoir de réglementation de la circulation.</p></article>\n</div>\n<div class=\"focus-question\"><span>À ce stade</span><strong>Quelle information sécurise réellement le fait que Mélanie peut avancer sur un arrêté du maire ?</strong></div>\n", "activity": {"type": "choice", "choices": ["Le fait qu’un ancien arrêté existe déjà.", "Le fait qu’un texte permette d’établir le pouvoir du maire dans la situation étudiée.", "Le fait que la manifestation ait lieu samedi."], "correct": 1, "feedback": ["Un précédent ne crée aucune compétence.", "Exact. Mélanie commence par établir qu’une autorité dispose bien du pouvoir d’agir dans cette situation.", "La date sera utile pour le dispositif, mais ne répond pas à la question de compétence."]}}, {"eyebrow": "Dossier 1 · Commune", "title": "Regardez ce que fait réellement l’acte", "body": "\n<div class=\"decision-sheet\">\n  <div class=\"decision-sheet-head\"><span>Projet de mesure</span><strong>Circulation temporairement interdite</strong></div>\n  <div class=\"decision-street\" aria-hidden=\"true\"><div class=\"street-line\"></div><div class=\"road-sign\">⛔</div><div class=\"street-label\">Rue des Flamboyants</div><div class=\"time-badge\">Samedi · 7 h → 18 h</div></div>\n  <div class=\"decision-sheet-text\">La circulation de <strong>tous les véhicules</strong> sera interdite pendant la période prévue, sauf véhicules de secours.</div>\n</div>\n<div class=\"compare-question\"><div class=\"compare-label\">Pour qualifier l’acte, ne regardez pas son titre. Regardez son effet.</div><strong>La mesure vise-t-elle une personne identifiée ou une règle applicable à tous les usagers concernés ?</strong></div>\n", "activity": {"type": "choice", "choices": ["Elle vise une personne précisément identifiée.", "Elle fixe une règle applicable à tous les usagers entrant dans la situation prévue."], "correct": 1, "feedback": ["Non. Aucune personne déterminée n’est individuellement visée.", "Exact. Dans ce cas pédagogique, la mesure a un caractère réglementaire."]}}, {"eyebrow": "Dossier 1 · Commune", "title": "Le piège se cache dans une petite mention", "body": "\n<div class=\"split-doc-scene\">\n  <div class=\"old-act\"><div class=\"old-act-ribbon\">Acte 2025</div><div class=\"old-act-lines\"><span></span><span></span><span></span><span></span></div><div class=\"old-act-footer\"><small>Mention en bas de page</small><strong>« Transmis au haut-commissaire le… »</strong></div></div>\n  <div class=\"colleague-bubble\"><small>Un collègue</small><strong>« Remets la même chose. Tous nos arrêtés sont transmis. »</strong></div>\n</div>\n<div class=\"risk-question\"><span class=\"risk-dot\"></span><div><small>Attention au réflexe automatique</small><strong>Quelle est la bonne conduite ?</strong></div></div>\n", "activity": {"type": "choice", "choices": ["Reprendre la mention puisqu’elle figurait sur l’ancien acte.", "Supprimer automatiquement la mention puisque les arrêtés municipaux ne sont jamais transmis.", "Vérifier si cette catégorie précise d’acte doit être transmise."], "correct": 2, "feedback": ["Une formalité ancienne doit, elle aussi, être vérifiée.", "Le raisonnement « jamais » serait aussi risqué que le raisonnement « toujours ».", "Exact. Le code énumère les actes soumis à transmission ; il faut donc vérifier la catégorie concernée au lieu de recopier la mention."]}}, {"eyebrow": "Dossier 1 · Commune", "title": "Après la signature, le dossier continue", "body": "\n<div class=\"post-signature\">\n  <div class=\"signature-stamp\"><span>✓</span><strong>Arrêté signé</strong></div>\n  <div class=\"post-arrow\" aria-hidden=\"true\">→</div>\n  <div class=\"post-question\"><small>Et maintenant ?</small><strong>Quelles actions restent à traiter pour le cas étudié ?</strong></div>\n</div>\n<div class=\"action-cards-intro\"><span>Sélectionnez ce qui reste pertinent</span><p>Vous pouvez choisir plusieurs réponses.</p></div>\n", "activity": {"type": "multi", "choices": ["Porter l’acte à la connaissance des personnes concernées selon les règles de publicité applicables.", "Le transmettre obligatoirement au haut-commissaire au titre de la catégorie étudiée.", "Vérifier les modalités pratiques de mise en œuvre sur le terrain."], "correct": [0, 2], "feedback": "Pour ce cas pédagogique : la publicité reste nécessaire ; la transmission obligatoire n’est pas requise au titre de la catégorie étudiée ; la mise en œuvre pratique doit aussi être préparée."}}, {"eyebrow": "Dossier 2 · Province", "title": "« Le dossier ne remplit pas les conditions »", "body": "\n<div class=\"case-opening province-case\">\n  <div class=\"case-person\">\n    <div class=\"case-photo-frame\"><img class=\"case-photo\" src=\"assets/03_lina_province.webp\" alt=\"Lina étudie les pièces d’un dossier avant de préparer une décision de refus.\"></div>\n    <div class=\"person-caption\"><span class=\"role-tag\">Gestionnaire provinciale</span><h3>Lina</h3><p>Elle instruit des demandes et prépare les projets de décision de son service.</p></div>\n  </div>\n  <div class=\"case-context province-context\">\n    <div class=\"case-label\">La situation</div>\n    <p>Une association demande l’autorisation d’utiliser un équipement provincial pour organiser une manifestation.</p>\n    <p>Après instruction, le service conclut que <strong>la demande ne remplit pas toutes les conditions prévues.</strong></p>\n  </div>\n</div>\n\n<div class=\"province-dossier-stack\" aria-hidden=\"true\">\n  <div class=\"stack-doc sd1\">Demande</div>\n  <div class=\"stack-doc sd2\">Règlement</div>\n  <div class=\"stack-doc sd3\">Fiche d’instruction</div>\n  <div class=\"stack-doc sd4\">Ancienne décision</div>\n</div>\n\n<div class=\"manager-request province-request\">\n  <span class=\"manager-mark\">↳</span>\n  <div><small>Consigne</small><strong>« La demande doit être refusée. Peux-tu préparer la décision ? »</strong></div>\n</div>\n\n<div class=\"decision-prompt\"><span class=\"decision-label\">Premier réflexe</span><strong>Par quoi Lina doit-elle commencer ?</strong></div>\n", "activity": {"type": "choice", "choices": ["Reprendre l’ancienne décision et modifier le nom de l’association.", "Lire uniquement le règlement provincial.", "Identifier la règle applicable et les faits précis du dossier qui conduisent au refus."], "correct": 2, "feedback": ["Le modèle peut aider à structurer le document, mais pas à comprendre ce dossier précis.", "Le règlement est nécessaire, mais il faut aussi confronter la règle aux faits du dossier.", "Exact : règle applicable + faits utiles + raisonnement."]}}, {"eyebrow": "Dossier 2 · Province", "title": "Le bon texte dépend aussi de l’administration", "body": "\n<p class=\"lead compact-lead\">Une collègue conseille à Lina : <strong>« Pour la motivation, regarde directement dans le CRPA. »</strong></p>\n\n<div class=\"regime-compare\">\n  <div class=\"regime-card regime-state\">\n    <div class=\"regime-top\"><span class=\"regime-icon\">A</span><span>État / communes</span></div>\n    <h3>CRPA</h3>\n    <p>Le code des relations entre le public et l’administration constitue ici le corpus de référence, sous réserve des adaptations applicables en Nouvelle-Calédonie.</p>\n  </div>\n\n  <div class=\"regime-switch\" aria-hidden=\"true\">≠</div>\n\n  <div class=\"regime-card regime-local\">\n    <div class=\"regime-top\"><span class=\"regime-icon\">B</span><span>Nouvelle-Calédonie / provinces</span></div>\n    <h3>Droit localement applicable</h3>\n    <p>Pour la motivation, la loi du 11 juillet 1979 demeure notamment une référence applicable aux administrations de la Nouvelle-Calédonie et des provinces.</p>\n  </div>\n</div>\n\n<div class=\"regime-warning\">\n  <span>!</span>\n  <div><strong>Le piège :</strong> appliquer automatiquement le même corpus juridique à toutes les administrations publiques de Nouvelle-Calédonie.</div>\n</div>\n\n<div class=\"decision-prompt\"><span class=\"decision-label\">Que fait Lina ?</span><strong>Quel est le bon réflexe ?</strong></div>\n", "activity": {"type": "choice", "choices": ["Utiliser systématiquement le CRPA.", "Vérifier d’abord quel régime de motivation s’applique à l’administration provinciale.", "Ne rien vérifier : dès qu’il y a des considérants, la motivation est suffisante."], "correct": 1, "feedback": ["Le CRPA n’est pas ici le réflexe universel.", "Exact. Le premier contrôle porte sur le corpus applicable à l’administration qui prend la décision.", "La présence du mot « considérant » ne suffit pas à démontrer que la motivation est juridiquement utile."]}}, {"eyebrow": "Dossier 2 · Province", "title": "Refuser une autorisation : faut-il expliquer pourquoi ?", "body": "\n<div class=\"legal-extract-card\">\n  <div class=\"legal-extract-head\">\n    <span class=\"legal-symbol\">§</span>\n    <div><small>Ressource fournie à Lina</small><strong>Règle simplifiée</strong></div>\n  </div>\n  <div class=\"legal-extract-body\">\n    Certaines décisions administratives individuelles défavorables doivent être motivées.\n    <strong>Sont notamment concernées les décisions qui refusent une autorisation.</strong>\n  </div>\n</div>\n\n<div class=\"case-link\">\n  <span class=\"case-link-label\">Dans notre dossier</span>\n  <div class=\"case-link-line\"></div>\n  <strong>La province refuse précisément l’autorisation demandée par l’association.</strong>\n</div>\n\n<div class=\"decision-prompt\"><span class=\"decision-label\">Application</span><strong>La décision doit-elle être motivée ?</strong></div>\n", "activity": {"type": "choice", "choices": ["Oui.", "Non, puisqu’un refus appartient au pouvoir de l’administration.", "Uniquement si l’association demande ensuite les motifs."], "correct": 0, "feedback": ["Oui. Dans la situation pédagogique proposée, la décision entre dans une catégorie pour laquelle la motivation est requise.", "Non. Dans le cas étudié, le refus ne dispense pas l’administration d’exposer ses motifs.", "Non. Ici, la motivation doit apparaître dans la décision elle-même."]}}, {"eyebrow": "Dossier 2 · Province", "title": "Des visas ne remplacent pas une motivation", "body": "\n<div class=\"act-analysis\">\n  <div class=\"act-paper\">\n    <div class=\"act-section act-visas\">\n      <span class=\"act-label\">Visas</span>\n      <p><strong>Vu</strong> le règlement provincial applicable ;</p>\n      <p><strong>Vu</strong> la demande déposée par l’association ;</p>\n    </div>\n    <div class=\"act-section act-motive\">\n      <span class=\"act-label\">Motivation</span>\n      <p><strong>Considérant</strong> qu’il y a lieu de refuser la demande ;</p>\n    </div>\n    <div class=\"act-section act-dispositif\">\n      <span class=\"act-label\">Décision</span>\n      <p><strong>Article 1</strong> — La demande est refusée.</p>\n    </div>\n  </div>\n\n  <div class=\"analysis-side\">\n    <div class=\"analysis-question\">Le document cite des textes et contient un « considérant ».</div>\n    <div class=\"analysis-question strongq\">Mais comprend-on réellement <em>pourquoi</em> la demande est refusée ?</div>\n  </div>\n</div>\n\n<div class=\"visa-vs-motif\">\n  <div><small>Un visa répond surtout à</small><strong>« Sur quelles références m’appuyé-je ? »</strong></div>\n  <span>≠</span>\n  <div><small>Une motivation répond à</small><strong>« Pourquoi cette décision dans ce dossier ? »</strong></div>\n</div>\n\n<div class=\"pedago-info-wrap\"><img class=\"pedago-info\" src=\"assets/info_04_visas_motivation.webp\" alt=\"Infographie comparant la fonction des visas et celle de la motivation.\"></div><div class=\"decision-prompt\"><span class=\"decision-label\">Diagnostic</span><strong>Quel est le principal problème ?</strong></div>\n", "activity": {"type": "choice", "choices": ["Il n’y a pas assez de textes dans les visas.", "La décision ne permet pas réellement de comprendre pourquoi la demande est refusée.", "Le mot « Considérant » devrait être écrit en majuscules."], "correct": 1, "feedback": ["Ajouter des textes ne résoudrait pas le problème de raisonnement.", "Exact. « Il y a lieu de refuser » donne la conclusion, pas les raisons de droit et de fait.", "La typographie n’est pas le problème ici."]}}, {"eyebrow": "Dossier 2 · Province", "title": "Construisez le raisonnement : règle → faits → décision", "body": "\n<div class=\"reasoning-flow\">\n  <div class=\"reason-node rule-node\">\n    <span class=\"reason-kicker\">1 · Règle</span>\n    <strong>Le règlement fictif exige notamment une attestation d’assurance.</strong>\n  </div>\n  <div class=\"reason-arrow\" aria-hidden=\"true\">+</div>\n  <div class=\"reason-node fact-node\">\n    <span class=\"reason-kicker\">2 · Faits</span>\n    <strong>Le dossier contient plusieurs informations. Toutes ne sont pas utiles.</strong>\n  </div>\n  <div class=\"reason-arrow\" aria-hidden=\"true\">→</div>\n  <div class=\"reason-node decision-node\">\n    <span class=\"reason-kicker\">3 · Décision</span>\n    <strong>La condition n’est pas remplie : l’autorisation peut être refusée sur ce fondement.</strong>\n  </div>\n</div>\n\n<div class=\"fact-file\">\n  <div class=\"fact-file-head\"><span>Pièces du dossier</span><strong>Quels faits sont réellement déterminants ?</strong></div>\n  <div class=\"fact-mini-grid\">\n    <span>Attestation d’assurance non fournie malgré relance</span>\n    <span>Dispositif de sécurité transmis</span>\n    <span>Président de l’association en fonction depuis 6 ans</span>\n    <span>Identité du responsable transmise</span>\n  </div>\n</div>\n\n<div class=\"decision-prompt\"><span class=\"decision-label\">Sélection multiple</span><strong>Quels éléments sont utiles pour expliquer juridiquement le refus ?</strong></div>\n", "activity": {"type": "multi", "choices": ["La règle exigeant l’attestation d’assurance.", "L’absence de cette attestation malgré la demande de complément.", "L’ancienneté du président de l’association.", "Le fait que le dispositif de sécurité a été transmis."], "correct": [0, 1], "feedback": "Une motivation utile retient la règle pertinente et les faits déterminants. Les informations sans lien avec la condition manquante n’ont pas à encombrer le raisonnement."}}, {"eyebrow": "Dossier 2 · Province", "title": "Même décision. Deux niveaux de qualité très différents.", "body": "\n<div class=\"before-after-motive\">\n  <div class=\"motive-version weak-version\">\n    <div class=\"motive-badge\">Avant</div>\n    <span class=\"motive-status\">Insuffisant pour comprendre</span>\n    <blockquote>« Considérant qu’il y a lieu de rejeter la demande. »</blockquote>\n    <p>Le lecteur connaît la conclusion, mais pas le raisonnement.</p>\n  </div>\n\n  <div class=\"motive-divider\" aria-hidden=\"true\">→</div>\n\n  <div class=\"motive-version strong-version\">\n    <div class=\"motive-badge\">Après</div>\n    <span class=\"motive-status\">Raisonnement visible</span>\n    <div class=\"motive-steps\">\n      <div><span>Règle</span><p>L’attestation d’assurance est requise.</p></div>\n      <div><span>Fait</span><p>Elle n’a pas été produite malgré la demande de complément.</p></div>\n      <div><span>Conséquence</span><p>La condition n’est donc pas remplie.</p></div>\n    </div>\n  </div>\n</div>\n\n<div class=\"reader-test\">\n  <div class=\"reader-icon\" aria-hidden=\"true\">👁</div>\n  <div>\n    <small>Le test du lecteur extérieur</small>\n    <strong>Une personne qui ne connaît pas le dossier peut-elle comprendre quelle règle a été appliquée et quels faits ont conduit à la décision ?</strong>\n  </div>\n</div>\n\n<div class=\"key-sentence province-key\">\n  <span class=\"key-mark\">✓</span>\n  <div><strong>À retenir :</strong> lorsque la motivation est requise, l’acte doit faire apparaître les considérations pertinentes de droit et de fait.</div>\n</div>\n"}, {"eyebrow": "Dossier 3 · Nouvelle-Calédonie", "title": "« Il nous faut maintenant l’arrêté d’application »", "body": "\n<div class=\"case-opening nc-case\">\n  <div class=\"case-person\">\n    <div class=\"case-photo-frame\"><img class=\"case-photo\" src=\"assets/04_thomas_nc.webp\" alt=\"Thomas suit les différentes étapes d’un acte administratif et contrôle son circuit.\"></div>\n    <div class=\"person-caption\"><span class=\"role-tag\">Chargé de mission</span><h3>Thomas</h3><p>Il prépare un projet d’arrêté pour un service de la Nouvelle-Calédonie.</p></div>\n  </div>\n  <div class=\"case-context nc-context\">\n    <div class=\"case-label\">La situation</div>\n    <p>Le congrès vient d’adopter une délibération créant un nouveau dispositif administratif.</p>\n    <p>Cette délibération prévoit que certaines modalités seront précisées par <strong>arrêté du gouvernement.</strong></p>\n  </div>\n</div>\n\n<div class=\"nc-source-chain\" aria-hidden=\"true\">\n  <div class=\"chain-doc congress-doc\">\n    <span>Délibération du congrès</span>\n    <strong>Le cadre</strong>\n  </div>\n  <div class=\"chain-arrow\">→</div>\n  <div class=\"chain-doc gov-doc\">\n    <span>Arrêté du gouvernement</span>\n    <strong>La mise en œuvre</strong>\n  </div>\n</div>\n\n<div class=\"manager-request nc-request\">\n  <span class=\"manager-mark\">↳</span>\n  <div><small>Consigne</small><strong>« Tu peux reprendre l’arrêté utilisé pour un dispositif similaire. »</strong></div>\n</div>\n\n<div class=\"decision-prompt\"><span class=\"decision-label\">Avant le modèle</span><strong>Quelle vérification Thomas doit-il faire en premier ?</strong></div>\n", "activity": {"type": "choice", "choices": ["Vérifier seulement que l’ancien arrêté a été publié au JONC.", "Vérifier que le gouvernement peut prendre l’arrêté envisagé et identifier le fondement de ce pouvoir.", "Vérifier seulement que le titre ressemble à celui de l’ancien arrêté."], "correct": 1, "feedback": ["La publication de l’ancien acte ne prouve pas que le nouvel acte repose sur le bon fondement.", "Exact. La première question est : « Pourquoi le gouvernement peut-il agir ici ? »", "Le titre d’un document ne crée aucune compétence."]}}, {"eyebrow": "Dossier 3 · Nouvelle-Calédonie", "title": "Retrouvez le passage qui autorise le gouvernement à agir", "body": "\n<div class=\"habilitation-board\">\n  <div class=\"habilitation-source\">\n    <div class=\"hb-head\"><span class=\"hb-num\">1</span><div><small>Loi organique — règle simplifiée</small><strong>Le principe</strong></div></div>\n    <p>Le gouvernement prépare et exécute les délibérations du congrès et prend, <strong>sur habilitation</strong>, les arrêtés nécessaires à leur mise en œuvre.</p>\n  </div>\n\n  <div class=\"habilitation-link\" aria-hidden=\"true\">\n    <span></span><strong>Je cherche le lien</strong><span></span>\n  </div>\n\n  <div class=\"habilitation-target\">\n    <div class=\"hb-head\"><span class=\"hb-num\">2</span><div><small>Délibération fictive</small><strong>Article 18</strong></div></div>\n    <blockquote>« Les conditions d’application relatives à la procédure d’instruction et aux pièces justificatives sont précisées par arrêté du gouvernement. »</blockquote>\n  </div>\n</div>\n\n<div class=\"habilitation-result\">\n  <span class=\"result-key\">✓</span>\n  <div><small>Ce que Thomas doit pouvoir établir</small><strong>Le gouvernement n’intervient pas « parce qu’un arrêté est pratique » : il intervient ici parce que la délibération lui confie précisément cette mise en œuvre.</strong></div>\n</div>\n\n<div class=\"decision-prompt\"><span class=\"decision-label\">Repérage</span><strong>Quel élément permet au gouvernement d’intervenir dans ce dossier ?</strong></div>\n", "activity": {"type": "choice", "choices": ["Le service estime qu’un arrêté serait utile.", "L’article 18 de la délibération habilite le gouvernement à préciser les modalités concernées.", "Un arrêté similaire a déjà existé."], "correct": 1, "feedback": ["L’utilité administrative ne crée pas un pouvoir juridique.", "Exact. Thomas a identifié l’habilitation qui fonde l’intervention du gouvernement dans ce dossier.", "Un précédent n’est pas un fondement juridique."]}}, {"eyebrow": "Dossier 3 · Nouvelle-Calédonie", "title": "Une habilitation donne un cadre. Elle a aussi des limites.", "body": "\n<div class=\"scope-frame\">\n  <div class=\"scope-head\">\n    <span class=\"scope-label\">Ce que la délibération permet de préciser</span>\n    <strong>Le périmètre de l’arrêté d’application</strong>\n  </div>\n  <div class=\"scope-inside\">\n    <span>Procédure d’instruction</span>\n    <span>Pièces justificatives</span>\n    <span>Délais de dépôt</span>\n  </div>\n</div>\n\n<div class=\"scope-outside\">\n  <div class=\"outside-mark\">+</div>\n  <div>\n    <small>Thomas envisage d’ajouter</small>\n    <strong>« Toute demande tardive donnera lieu à une pénalité administrative de 50 000 F CFP. »</strong>\n  </div>\n</div>\n\n<div class=\"scope-alert\">\n  <span>?</span>\n  <div><strong>La question n’est pas : « Est-ce utile ? »</strong><p>La question est : « Le gouvernement dispose-t-il réellement d’un fondement lui permettant de créer cette sanction ? »</p></div>\n</div>\n\n<div class=\"decision-prompt\"><span class=\"decision-label\">Limite du pouvoir d’agir</span><strong>Que doit faire Thomas ?</strong></div>\n", "activity": {"type": "choice", "choices": ["Ajouter la sanction puisque le gouvernement prend l’arrêté d’application.", "Ajouter la sanction si elle semble utile au dispositif.", "S’arrêter et vérifier s’il existe un fondement permettant réellement de créer cette sanction."], "correct": 2, "feedback": ["Un arrêté d’application n’est pas un blanc-seing.", "L’utilité d’une mesure ne suffit pas à établir la compétence pour la créer.", "Exact. Doute sur l’étendue de la compétence = point à sécuriser avant de rédiger."]}}, {"eyebrow": "Dossier 3 · Nouvelle-Calédonie", "title": "Le projet paraît parfait… mais regardez tout en bas", "body": "\n<div class=\"perfect-act-layout\">\n  <div class=\"perfect-checks\">\n    <div class=\"perfect-title\">Le projet de Thomas</div>\n    <div class=\"perfect-item\"><span>✓</span> Titre précis</div>\n    <div class=\"perfect-item\"><span>✓</span> Visas actualisés</div>\n    <div class=\"perfect-item\"><span>✓</span> Habilitation identifiée</div>\n    <div class=\"perfect-item\"><span>✓</span> Motivation cohérente</div>\n    <div class=\"perfect-item\"><span>✓</span> Dispositif clair</div>\n  </div>\n\n  <div class=\"signature-paper\">\n    <div class=\"sig-lines\"><span></span><span></span><span></span></div>\n    <div class=\"sig-zone\">\n      <small>Signature prévue</small>\n      <strong>Le président du gouvernement</strong>\n      <em>[signature]</em>\n    </div>\n  </div>\n</div>\n\n<div class=\"magnifier-note\">\n  <span class=\"magnifier\" aria-hidden=\"true\">⌕</span>\n  <div><small>Dernier contrôle</small><strong>Le contenu est bien rédigé. Mais le circuit de signature est-il complet ?</strong></div>\n</div>\n\n<div class=\"pedago-info-wrap\"><img class=\"pedago-info\" src=\"assets/info_05_competence_signature.webp\" alt=\"Infographie distinguant compétence, délégation de signature et contreseing.\"><div class=\"pedago-info-caption\">Trois contrôles différents : pouvoir de décider, pouvoir de signer, éventuelle seconde signature requise.</div></div><div class=\"decision-prompt\"><span class=\"decision-label\">Avant transmission</span><strong>Quel point Thomas doit-il encore vérifier ?</strong></div>\n", "activity": {"type": "choice", "choices": ["Aucun : le président signe les actes du gouvernement.", "Les règles particulières de signature et de contreseing applicables aux arrêtés du gouvernement.", "Uniquement la police de caractères utilisée."], "correct": 1, "feedback": ["Pour un arrêté du gouvernement, le contrôle ne s’arrête pas à la signature du président.", "Exact. La loi organique prévoit une règle particulière de signature et de contreseing.", "La typographie n’est pas l’enjeu juridique de cet écran."]}}, {"eyebrow": "Dossier 3 · Nouvelle-Calédonie", "title": "Deux interventions à prévoir sur l’arrêté", "body": "\n<div class=\"signature-system\">\n  <div class=\"sign-card president-card\">\n    <div class=\"sign-role\">Signature</div>\n    <div class=\"sign-avatar\">P</div>\n    <h3>Président du gouvernement</h3>\n    <p>Il signe l’arrêté.</p>\n    <div class=\"signature-line\"></div>\n  </div>\n\n  <div class=\"signature-plus\" aria-hidden=\"true\">+</div>\n\n  <div class=\"sign-card member-card\">\n    <div class=\"sign-role\">Contreseing</div>\n    <div class=\"sign-avatar\">M</div>\n    <h3>Membre chargé du secteur concerné</h3>\n    <p>Il contresigne l’arrêté lorsqu’il est chargé d’en contrôler l’exécution.</p>\n    <div class=\"signature-line\"></div>\n  </div>\n</div>\n\n<div class=\"signature-rule\">\n  <span class=\"legal-symbol\">§</span>\n  <div><small>Règle à utiliser, pas à apprendre par cœur</small><strong>Les arrêtés du gouvernement sont signés par le président et contresignés par les membres du gouvernement chargés d’en contrôler l’exécution.</strong></div>\n</div>\n\n<div class=\"decision-prompt\"><span class=\"decision-label\">Dans le dossier de Thomas</span><strong>Quels emplacements faut-il prévoir ?</strong></div>\n", "activity": {"type": "multi", "choices": ["Signature du président du gouvernement.", "Contreseing du membre du gouvernement chargé du secteur concerné.", "Signature obligatoire du haut-commissaire."], "correct": [0, 1], "feedback": "Pour l’arrêté étudié : signature du président + contreseing du membre chargé d’en contrôler l’exécution. Le haut-commissaire n’est pas un signataire de l’arrêté."}}, {"eyebrow": "Dossier 3 · Nouvelle-Calédonie", "title": "Signé ne veut pas encore dire exécutoire", "body": "\n<p class=\"lead compact-lead\">Thomas vient d’obtenir l’arrêté signé. Son tableau de suivi affiche déjà <strong>« Terminé »</strong>.</p>\n\n<div class=\"lifecycle\">\n  <div class=\"life-step done-step\">\n    <span class=\"life-num\">1</span>\n    <small>Décision</small>\n    <strong>Adopté</strong>\n  </div>\n  <div class=\"life-arrow\">→</div>\n  <div class=\"life-step done-step\">\n    <span class=\"life-num\">2</span>\n    <small>Formalisation</small>\n    <strong>Signé</strong>\n  </div>\n  <div class=\"life-arrow\">→</div>\n  <div class=\"life-step pending-step\">\n    <span class=\"life-num\">3</span>\n    <small>Selon la nature de l’acte</small>\n    <strong>Publié au JONC ou notifié</strong>\n  </div>\n  <div class=\"life-arrow\">+</div>\n  <div class=\"life-step pending-step\">\n    <span class=\"life-num\">4</span>\n    <small>Actes concernés</small>\n    <strong>Transmis au haut-commissaire</strong>\n  </div>\n  <div class=\"life-arrow\">→</div>\n  <div class=\"life-step final-step\">\n    <span class=\"life-num\">5</span>\n    <small>Lorsque les conditions sont réunies</small>\n    <strong>Exécutoire</strong>\n  </div>\n</div>\n\n<div class=\"lifecycle-note\">\n  <span>!</span>\n  <div><strong>Pour les arrêtés réglementaires ou individuels du gouvernement visés par l’article 204 :</strong><p>le caractère exécutoire suppose l’accomplissement des formalités prévues. Pour les décisions individuelles concernées, la transmission intervient dans les quinze jours suivant la signature.</p></div>\n</div>\n\n<div class=\"decision-prompt\"><span class=\"decision-label\">Dernier réflexe du dossier</span><strong>À la seule lecture de « signé », Thomas peut-il considérer son travail terminé ?</strong></div>\n", "activity": {"type": "choice", "choices": ["Oui, la signature suffit.", "Oui, dès lors que le gouvernement a adopté le texte.", "Non. Il faut encore vérifier et accomplir les formalités nécessaires pour rendre l’acte exécutoire."], "correct": 2, "feedback": ["La signature est une étape, pas nécessairement la dernière.", "L’adoption ne suffit pas à elle seule.", "Exact. Le cycle de vie de l’acte continue après la signature."]}}, {"eyebrow": "Dossier 4 · Établissement public", "title": "« Prépare-moi une décision, je la signerai »", "body": "\n<div class=\"case-opening ep-case\">\n  <div class=\"case-person\">\n    <div class=\"case-photo-frame\"><img class=\"case-photo\" src=\"assets/05_noemie_ep.webp\" alt=\"Noémie compare plusieurs documents pour déterminer l’autorité compétente.\"></div>\n    <div class=\"person-caption\"><span class=\"role-tag\">Gestionnaire administrative</span><h3>Noémie</h3><p>Elle travaille dans un établissement public fictif de la Nouvelle-Calédonie.</p></div>\n  </div>\n  <div class=\"case-context ep-context\">\n    <div class=\"case-label\">La situation</div>\n    <p>Une association partenaire demande à utiliser gratuitement une salle de l’établissement pendant <strong>trois mois</strong>.</p>\n    <p>Le directeur estime que la demande peut être acceptée.</p>\n  </div>\n</div>\n\n<div class=\"manager-request ep-request\">\n  <span class=\"manager-mark\">↳</span>\n  <div><small>Message du directeur</small><strong>« Prépare-moi la décision, je la signerai. »</strong></div>\n</div>\n\n<div class=\"authority-trap\">\n  <div class=\"trap-left\">\n    <small>Ce que Noémie sait</small>\n    <strong>Le directeur signe régulièrement des décisions.</strong>\n  </div>\n  <div class=\"trap-symbol\" aria-hidden=\"true\">≠</div>\n  <div class=\"trap-right\">\n    <small>Ce qu’elle ne sait pas encore</small>\n    <strong>S’il est compétent pour cette décision précise.</strong>\n  </div>\n</div>\n\n<div class=\"decision-prompt\"><span class=\"decision-label\">Premier réflexe</span><strong>Le fait que le directeur signe souvent des actes suffit-il ?</strong></div>\n", "activity": {"type": "choice", "choices": ["Oui, puisqu’il dirige l’établissement.", "Oui, si les anciennes décisions sont bien présentées.", "Non. Il faut vérifier quel organe est compétent et ce que prévoient les textes propres à l’établissement."], "correct": 2, "feedback": ["La qualité de directeur ne permet pas de déduire toutes ses compétences.", "La présentation d’un ancien acte ne prouve aucune compétence.", "Exact. Avant de rédiger, Noémie doit identifier le texte qui répartit les pouvoirs dans l’établissement."]}}, {"eyebrow": "Dossier 4 · Établissement public", "title": "Cherchez la règle de gouvernance avant le modèle Word", "body": "\n<p class=\"lead compact-lead\">Noémie dispose de quatre ressources. Elles n’ont pas toutes la même valeur pour répondre à la question : <strong>« Qui peut décider ? »</strong></p>\n\n<div class=\"resource-shelf\">\n  <article class=\"resource-card low-resource\">\n    <span class=\"resource-letter\">A</span>\n    <div class=\"resource-icon\">▤</div>\n    <h3>Règlement intérieur des salles</h3>\n    <p>Il précise les conditions d’utilisation.</p>\n  </article>\n\n  <article class=\"resource-card key-resource\">\n    <span class=\"resource-letter\">B</span>\n    <div class=\"resource-icon\">§</div>\n    <h3>Statut de l’établissement</h3>\n    <p>Il répartit les compétences entre les organes.</p>\n  </article>\n\n  <article class=\"resource-card low-resource\">\n    <span class=\"resource-letter\">C</span>\n    <div class=\"resource-icon\">↺</div>\n    <h3>Ancienne décision</h3>\n    <p>Elle montre une pratique passée.</p>\n  </article>\n\n  <article class=\"resource-card low-resource\">\n    <span class=\"resource-letter\">D</span>\n    <div class=\"resource-icon\">W</div>\n    <h3>Modèle Word</h3>\n    <p>Il aide à la mise en forme.</p>\n  </article>\n</div>\n\n<div class=\"statut-repere\">\n  <span class=\"legal-symbol\">§</span>\n  <div>\n    <small>Repère juridique</small>\n    <strong>Pour les établissements publics administratifs de la Nouvelle-Calédonie et des provinces, la loi organique renvoie au statut de chaque établissement pour l’exécution des délibérations du conseil d’administration.</strong>\n  </div>\n</div>\n\n<div class=\"decision-prompt\"><span class=\"decision-label\">Priorité</span><strong>Quel document Noémie consulte-t-elle d’abord pour rechercher l’autorité compétente ?</strong></div>\n", "activity": {"type": "choice", "choices": ["Le règlement intérieur.", "Le statut de l’établissement.", "L’ancienne décision.", "Le modèle Word."], "correct": 1, "feedback": ["Le règlement peut préciser les conditions d’usage, mais pas nécessairement la répartition des pouvoirs.", "Exact. Le statut est la première ressource pour comprendre qui décide quoi dans cet établissement fictif.", "Un précédent ne démontre pas une compétence actuelle.", "Un modèle Word n’a aucune valeur pour déterminer l’autorité compétente."]}}, {"eyebrow": "Dossier 4 · Établissement public", "title": "Une délégation doit couvrir exactement la décision à prendre", "body": "\n<div class=\"competence-compare\">\n  <div class=\"competence-box statut-box\">\n    <div class=\"competence-head\"><span>Statut fictif</span><strong>Qui décide normalement ?</strong></div>\n    <div class=\"competence-rule\">\n      <span class=\"cr-label\">Conseil d’administration</span>\n      <p>Décide des mises à disposition gratuites d’une durée <strong>supérieure à un mois</strong>.</p>\n    </div>\n  </div>\n\n  <div class=\"competence-box delegation-box\">\n    <div class=\"competence-head\"><span>Délégation fictive</span><strong>Ce que le directeur peut décider seul</strong></div>\n    <div class=\"competence-rule\">\n      <span class=\"cr-label\">Directeur</span>\n      <p>Mises à disposition ponctuelles d’une durée maximale de <strong>deux jours</strong>.</p>\n    </div>\n  </div>\n</div>\n\n<div class=\"request-meter\">\n  <div class=\"meter-label\"><small>Demande réelle</small><strong>3 mois</strong></div>\n  <div class=\"meter-track\">\n    <div class=\"meter-range delegation-range\"><span>≤ 2 jours</span></div>\n    <div class=\"meter-gap\"></div>\n    <div class=\"meter-target\"><span>3 mois</span></div>\n  </div>\n</div>\n\n<div class=\"gap-alert\">\n  <span class=\"gap-icon\">!</span>\n  <div><strong>Une délégation existe, mais elle ne suffit pas.</strong><p>Il faut lire son périmètre : bénéficiaire, matière, durée, limites et période de validité.</p></div>\n</div>\n\n<div class=\"decision-prompt\"><span class=\"decision-label\">Lecture de la délégation</span><strong>Le directeur peut-il signer la décision sur ce seul fondement ?</strong></div>\n", "activity": {"type": "choice", "choices": ["Oui, puisqu’une délégation existe.", "Non, la délégation fournie ne couvre pas la durée envisagée.", "Oui, puisque trois mois restent une durée temporaire."], "correct": 1, "feedback": ["L’existence d’une délégation ne suffit jamais à elle seule.", "Exact. La délégation doit couvrir la décision précise à prendre ; ici, deux jours et trois mois ne correspondent pas.", "Le caractère temporaire ne permet pas d’ignorer la limite fixée dans la délégation."]}}, {"eyebrow": "Dossier 4 · Établissement public", "title": "Savoir s’arrêter fait partie du travail", "body": "\n<div class=\"stop-scenario\">\n  <div class=\"stop-bubble\">\n    <small>Le responsable</small>\n    <strong>« Ce n’est pas grave. Fais quand même la décision, nous verrons après. »</strong>\n  </div>\n\n  <div class=\"stop-sign\" aria-hidden=\"true\">\n    <span>STOP</span>\n  </div>\n\n  <div class=\"stop-reason\">\n    <small>Ce qui manque encore</small>\n    <strong>Un fondement établissant que le directeur peut décider seul pour trois mois.</strong>\n  </div>\n</div>\n\n<div class=\"three-step-alert\">\n  <div class=\"alert-step\">\n    <span>1</span>\n    <strong>Je formule le doute</strong>\n    <p>Quelle autorité est compétente pour cette durée ?</p>\n  </div>\n  <div class=\"alert-step\">\n    <span>2</span>\n    <strong>Je joins les éléments utiles</strong>\n    <p>Statut, délégation, demande de l’association.</p>\n  </div>\n  <div class=\"alert-step\">\n    <span>3</span>\n    <strong>Je demande une validation ciblée</strong>\n    <p>Je ne transmets pas une question vague du type « mon acte est-il bon ? »</p>\n  </div>\n</div>\n\n<div class=\"good-question\">\n  <small>Une demande de validation utile</small>\n  <blockquote>« Le statut attribue au conseil d’administration les mises à disposition dépassant un mois. La délégation au directeur est limitée à deux jours. La demande porte sur trois mois. Pouvez-vous confirmer l’autorité et la procédure à retenir avant que je finalise le projet ? »</blockquote>\n</div>\n\n<div class=\"decision-prompt\"><span class=\"decision-label\">Posture professionnelle</span><strong>Que doit faire Noémie ?</strong></div>\n", "activity": {"type": "choice", "choices": ["Préparer l’acte comme si le directeur était compétent.", "Modifier artificiellement la durée pour entrer dans la délégation.", "Signaler le point de compétence et faire déterminer l’autorité ou la procédure appropriée avant de finaliser."], "correct": 2, "feedback": ["Cela reviendrait à ignorer un risque déjà identifié.", "On n’adapte jamais les faits pour les faire entrer artificiellement dans une délégation.", "Exact. Repérer précisément le doute et demander la validation adaptée fait partie de l’autonomie professionnelle."]}}, {"eyebrow": "Synthèse", "title": "Quatre dossiers. Une seule méthode.", "body": "\n<div class=\"four-cases-summary\">\n  <article class=\"summary-case sc-commune\">\n    <span class=\"summary-initial\">M</span>\n    <div><small>Commune</small><strong>Ne pas recopier une formalité sans la vérifier.</strong></div>\n  </article>\n  <article class=\"summary-case sc-province\">\n    <span class=\"summary-initial\">L</span>\n    <div><small>Province</small><strong>Distinguer les références de la véritable motivation.</strong></div>\n  </article>\n  <article class=\"summary-case sc-nc\">\n    <span class=\"summary-initial\">T</span>\n    <div><small>Nouvelle-Calédonie</small><strong>Vérifier le pouvoir d’agir, les signatures et l’après-signature.</strong></div>\n  </article>\n  <article class=\"summary-case sc-ep\">\n    <span class=\"summary-initial\">N</span>\n    <div><small>Établissement public</small><strong>Lire le statut et savoir s’arrêter quand le fondement manque.</strong></div>\n  </article>\n</div>\n\n<div class=\"method-3times\">\n  <section class=\"method-time mt-before\">\n    <div class=\"mt-head\"><span>01</span><div><small>Avant</small><strong>Je cadre</strong></div></div>\n    <ul>\n      <li>Que veut-on décider ?</li>\n      <li>Quelle administration est compétente ?</li>\n      <li>Quelle autorité peut décider ?</li>\n      <li>Quel type d’acte ?</li>\n      <li>Quelle procédure ?</li>\n      <li>Quels textes ?</li>\n    </ul>\n  </section>\n\n  <section class=\"method-time mt-during\">\n    <div class=\"mt-head\"><span>02</span><div><small>Pendant</small><strong>Je construis</strong></div></div>\n    <ul>\n      <li>Quels éléments de droit ?</li>\n      <li>Quels faits utiles ?</li>\n      <li>Quel dispositif précis ?</li>\n    </ul>\n  </section>\n\n  <section class=\"method-time mt-after\">\n    <div class=\"mt-head\"><span>03</span><div><small>Avant transmission / après signature</small><strong>Je sécurise</strong></div></div>\n    <ul>\n      <li>Qui signe ?</li>\n      <li>Quelle délégation ?</li>\n      <li>Faut-il un contreseing ?</li>\n      <li>Publication, notification, transmission ?</li>\n    </ul>\n  </section>\n</div>\n\n<div class=\"remember-band final-method-band\">\n  <span class=\"remember-eye\">◎</span>\n  <div><strong>Votre repère :</strong> vous n’avez pas neuf règles à mémoriser. Vous avez une méthode en trois temps à réutiliser sur vos propres dossiers.</div>\n</div>\n"}, {"eyebrow": "Contrôle final", "title": "Relecture finale : ce projet peut-il réellement partir en signature ?", "body": "<div class=\"relecture-brief\">\n  <span class=\"relecture-time\">5 min</span>\n  <div><small>Vous êtes le dernier relecteur avant transmission</small><strong>Ne cherchez pas des fautes de forme. Cherchez ce qui pourrait empêcher la décision d’être juridiquement ou opérationnellement sûre.</strong></div>\n</div>\n<div class=\"synthesis-master-wrap\">\n  <img class=\"master-visual synthesis-master\" src=\"assets/06_synthese.webp\"\n       alt=\"Document administratif examiné avec une loupe et plusieurs repères colorés signalant des points à vérifier.\">\n</div>\n\n<div class=\"fake-good-layout\">\n  <div class=\"fake-act\">\n    <div class=\"fake-act-head\">\n      <small>Projet fictif</small>\n      <strong>DÉCISION PORTANT AUTORISATION D’UTILISATION D’UN ÉQUIPEMENT PUBLIC</strong>\n    </div>\n\n    <div class=\"fake-zone\" data-zone=\"fondement\">\n      <span class=\"zone-tag\">Fondements</span>\n      <p><strong>Vu</strong> le texte portant création de l’établissement ;</p>\n      <p><strong>Vu</strong> le règlement relatif à l’utilisation des équipements ;</p>\n      <p><strong>Vu</strong> la demande de l’association Horizon ;</p>\n    </div>\n\n    <div class=\"fake-zone\" data-zone=\"motivation\">\n      <span class=\"zone-tag\">Motivation</span>\n      <p><strong>Considérant</strong> qu’il convient de faire droit à cette demande ;</p>\n    </div>\n\n    <div class=\"fake-zone\" data-zone=\"dates\">\n      <span class=\"zone-tag\">Article 1</span>\n      <p>L’association Horizon est autorisée à utiliser la salle du <strong>1er octobre au 30 septembre de la même année</strong>.</p>\n    </div>\n\n    <div class=\"fake-zone\">\n      <span class=\"zone-tag\">Article 2</span>\n      <p>L’association respecte le règlement intérieur applicable.</p>\n    </div>\n\n    <div class=\"fake-zone\" data-zone=\"formalites\">\n      <span class=\"zone-tag\">Article 3</span>\n      <p>La présente décision sera <strong>publiée et transmise conformément aux règles applicables.</strong></p>\n    </div>\n\n    <div class=\"fake-sign\" data-zone=\"signature\">\n      <small>Signature</small>\n      <strong>Le directeur adjoint</strong>\n      <em>Pour le directeur et par délégation</em>\n    </div>\n  </div>\n\n  <div class=\"case-docs\">\n    <div class=\"case-docs-title\"><small>Pièces disponibles</small><strong>Ce que vous savez réellement</strong></div>\n    <div class=\"case-doc\"><span>Statut</span><p>Au-delà d’un mois, la mise à disposition relève du conseil d’administration.</p></div>\n    <div class=\"case-doc\"><span>Délégation</span><p>Le directeur adjoint dispose d’une délégation pour les achats, missions et actes RH courants.</p></div>\n    <div class=\"case-doc\"><span>Demande</span><p>L’association sollicite une utilisation pendant trois mois.</p></div>\n  </div>\n</div>\n\n<div class=\"final-check-prompt\">\n  <span>Contrôle complet</span>\n  <strong>Sélectionnez tous les points qui méritent une vérification ou une correction avant transmission.</strong>\n</div>\n", "activity": {"type": "hotspots", "choices": ["Compétence de l’autorité pour une mise à disposition de trois mois.", "Périmètre réel de la délégation du directeur adjoint.", "Cohérence des dates de l’autorisation.", "Qualité de la motivation.", "Formalités après signature réellement applicables.", "Fondement juridique précis de la compétence."], "correct": [0, 1, 2, 3, 4, 5], "feedback": "Les six points méritent d’être contrôlés. Le document a tous les codes d’un acte administratif, mais son apparence ne sécurise ni la compétence, ni la délégation, ni les dates, ni la motivation, ni les formalités."}}, {"eyebrow": "Posture professionnelle", "title": "Je contrôle, je vérifie ou je fais valider ?", "body": "\n<p class=\"lead compact-lead\">L’autonomie ne consiste pas à tout résoudre seul. Elle consiste à <strong>savoir jusqu’où aller et quand demander une expertise ciblée.</strong></p>\n\n<div class=\"autonomy-zones\">\n  <section class=\"auto-zone zone-green\">\n    <div class=\"zone-head\"><span>✓</span><div><small>Je peux contrôler</small><strong>Contrôles de premier niveau</strong></div></div>\n    <ul>\n      <li>texte toujours en vigueur ;</li>\n      <li>cohérence des dates et montants ;</li>\n      <li>identité du signataire ;</li>\n      <li>correspondance entre faits et dispositif ;</li>\n      <li>périmètre apparent d’une délégation fournie.</li>\n    </ul>\n  </section>\n\n  <section class=\"auto-zone zone-orange\">\n    <div class=\"zone-head\"><span>↺</span><div><small>Je vérifie localement</small><strong>Règles propres à mon administration</strong></div></div>\n    <ul>\n      <li>circuit de validation ;</li>\n      <li>modalités pratiques de publication ;</li>\n      <li>outil de transmission ;</li>\n      <li>modèles internes ;</li>\n      <li>procédure d’archivage.</li>\n    </ul>\n  </section>\n\n  <section class=\"auto-zone zone-red\">\n    <div class=\"zone-head\"><span>!</span><div><small>Je fais valider</small><strong>Doute juridique significatif</strong></div></div>\n    <ul>\n      <li>compétence incertaine ;</li>\n      <li>textes contradictoires ;</li>\n      <li>sanction sans fondement clair ;</li>\n      <li>procédure sectorielle complexe ;</li>\n      <li>situation contentieuse ou atypique.</li>\n    </ul>\n  </section>\n</div>\n\n<div class=\"pedago-info-wrap\"><img class=\"pedago-info\" src=\"assets/info_06_autonomie.webp\" alt=\"Infographie distinguant contrôles de premier niveau, vérifications internes et validation juridique.\"></div><div class=\"decision-prompt\"><span class=\"decision-label\">Situation</span><strong>Deux textes semblent donner des réponses différentes sur l’autorité compétente. Que faites-vous ?</strong></div>\n", "activity": {"type": "choice", "choices": ["Je choisis automatiquement le texte le plus récent.", "Je prends le texte utilisé dans l’ancien modèle.", "J’identifie précisément la contradiction et je demande une validation avant de poursuivre."], "correct": 2, "feedback": ["La date peut être un indice, mais elle ne suffit pas toujours à résoudre l’articulation entre plusieurs textes.", "Un ancien modèle ne permet pas de résoudre une contradiction juridique.", "Exact. Vous avez identifié le point précis qui nécessite une expertise complémentaire."]}}, {"eyebrow": "Votre outil de travail", "title": "Mon acte est-il prêt ?", "body": "\n<div class=\"checklist-sheet\">\n  <div class=\"checklist-head\">\n    <div>\n      <small>Checklist professionnelle</small>\n      <strong>Avant de transmettre mon projet</strong>\n    </div>\n    <span class=\"checklist-mark\">✓</span>\n  </div>\n\n  <div class=\"checklist-grid\">\n    <section class=\"check-block cb-before\">\n      <div class=\"cb-title\"><span>01</span><strong>Avant de rédiger</strong></div>\n      <label><input type=\"checkbox\"> Je peux expliquer ce que l’administration veut décider.</label>\n      <label><input type=\"checkbox\"> J’ai vérifié la compétence de l’administration.</label>\n      <label><input type=\"checkbox\"> J’ai identifié l’autorité compétente.</label>\n      <label><input type=\"checkbox\"> J’ai identifié la nature de l’acte et les procédures préalables.</label>\n    </section>\n\n    <section class=\"check-block cb-during\">\n      <div class=\"cb-title\"><span>02</span><strong>Pendant la rédaction</strong></div>\n      <label><input type=\"checkbox\"> Mes textes sont applicables et à jour.</label>\n      <label><input type=\"checkbox\"> Je sais pourquoi ils sont utilisés.</label>\n      <label><input type=\"checkbox\"> La motivation est présente si elle est nécessaire.</label>\n      <label><input type=\"checkbox\"> Le dispositif correspond exactement à la décision attendue.</label>\n    </section>\n\n    <section class=\"check-block cb-sign\">\n      <div class=\"cb-title\"><span>03</span><strong>Avant signature</strong></div>\n      <label><input type=\"checkbox\"> J’ai identifié la bonne personne pour signer.</label>\n      <label><input type=\"checkbox\"> La délégation éventuelle est valide et adaptée.</label>\n      <label><input type=\"checkbox\"> J’ai vérifié l’éventuel contreseing.</label>\n    </section>\n\n    <section class=\"check-block cb-after\">\n      <div class=\"cb-title\"><span>04</span><strong>Après signature</strong></div>\n      <label><input type=\"checkbox\"> Je sais si l’acte doit être notifié ou publié.</label>\n      <label><input type=\"checkbox\"> Je sais s’il doit être transmis.</label>\n      <label><input type=\"checkbox\"> Je sais à quel moment il devient exécutoire.</label>\n      <label><input type=\"checkbox\"> J’ai vérifié les voies et délais de recours si nécessaire.</label>\n    </section>\n  </div>\n</div>\n\n<div class=\"three-stop-alerts\">\n  <div><span>STOP</span><strong>Compétence incertaine</strong><small>Je ne finalise pas sans vérification.</small></div>\n  <div><span>STOP</span><strong>Délégation absente ou ambiguë</strong><small>Je ne lance pas le circuit de signature.</small></div>\n  <div><span>STOP</span><strong>Procédure non sécurisée</strong><small>Je sollicite l’expertise adaptée.</small></div>\n</div>\n"}, {"eyebrow": "Conclusion", "title": "Votre premier outil n’est plus l’ancien modèle", "body": "\n<div class=\"final-hero\">\n  <div class=\"final-message\">\n    <p class=\"final-question\">Quand on vous demande :</p>\n    <blockquote>« Peux-tu préparer l’acte ? »</blockquote>\n    <p class=\"final-shift\">votre premier réflexe devient :</p>\n    <div class=\"final-answer\">« Qu’est-ce que je dois vérifier avant de rédiger ? »</div>\n  </div>\n\n  <div class=\"final-method-wheel\" aria-hidden=\"true\">\n    <div class=\"wheel-center\">ACTE<br><small>sécurisé</small></div>\n    <div class=\"wheel-item wi1\">Compétence</div>\n    <div class=\"wheel-item wi2\">Fondement</div>\n    <div class=\"wheel-item wi3\">Rédaction</div>\n    <div class=\"wheel-item wi4\">Signature</div>\n    <div class=\"wheel-item wi5\">Formalités</div>\n  </div>\n</div>\n\n<div class=\"final-3\">\n  <div class=\"final-card\">\n    <span>1</span><strong>Identifier</strong>\n    <p>Le cadre, la compétence, l’autorité et la nature de l’acte.</p>\n  </div>\n  <div class=\"final-card\">\n    <span>2</span><strong>Préparer</strong>\n    <p>Les fondements, les faits utiles, la motivation et le dispositif.</p>\n  </div>\n  <div class=\"final-card\">\n    <span>3</span><strong>Sécuriser</strong>\n    <p>La signature, la délégation, les formalités et le besoin éventuel d’expertise.</p>\n  </div>\n</div>\n\n<div class=\"closing-sentence\">\n  <span class=\"closing-line\"></span>\n  <strong>Un acte sécurisé commence avant la rédaction et ne se termine pas avec la signature.</strong>\n  <span class=\"closing-line\"></span>\n</div>\n\n<div class=\"completion-note\">\n  <span>✓</span>\n  <div><strong>Module terminé</strong><small>Votre progression est enregistrée.</small></div>\n</div>\n"}];
+const sections = [{"label": "Comprendre la méthode", "start": 0, "end": 7}, {"label": "Commune", "start": 8, "end": 12}, {"label": "Province", "start": 13, "end": 18}, {"label": "Nouvelle-Calédonie", "start": 19, "end": 24}, {"label": "Établissement public", "start": 25, "end": 28}, {"label": "Consolider", "start": 29, "end": 33}];
+let state={screen:0,answered:{}}, scormReady=false;
+
+function currentSection(i){
+  return sections.findIndex(s=>i>=s.start && i<=s.end);
+}
+function sectionProgress(si){
+  const s=sections[si], total=s.end-s.start+1;
+  const viewed=Math.max(0,Math.min(total,state.screen-s.start+1));
+  return `${viewed} / ${total}`;
+}
+function boot(){
+  scormReady=SCORM.init();
+  if(scormReady){
+    const loc=parseInt(SCORM.get("cmi.core.lesson_location")||"0",10);
+    if(!isNaN(loc)&&loc>=0&&loc<screens.length) state.screen=loc;
+    const st=SCORM.get("cmi.core.lesson_status");
+    if(!st||st==="not attempted") SCORM.set("cmi.core.lesson_status","incomplete");
+    const susp=SCORM.get("cmi.suspend_data");
+    if(susp) try{const x=JSON.parse(susp); if(x.answered) state.answered=x.answered;}catch(e){}
+    SCORM.commit();
+  } else {
+    const saved=localStorage.getItem("actes_admin_state_manager_ia");
+    if(saved) try{state={...state,...JSON.parse(saved)}}catch(e){}
+  }
+  renderRail(); render();
+}
+function save(){
+  if(scormReady){
+    SCORM.set("cmi.core.lesson_location",state.screen);
+    SCORM.set("cmi.suspend_data",JSON.stringify({answered:state.answered}).slice(0,3900));
+    if(state.screen===screens.length-1) SCORM.set("cmi.core.lesson_status","completed");
+    SCORM.commit();
+  } else localStorage.setItem("actes_admin_state_manager_ia",JSON.stringify(state));
+}
+function topOfScreen(){
+  requestAnimationFrame(()=>{
+    window.scrollTo({top:0,left:0,behavior:"auto"});
+    const t=document.getElementById("screenTitle");
+    if(t){t.setAttribute("tabindex","-1");t.focus({preventScroll:true});}
+  });
+}
+function goTo(i){
+  const n=Math.max(0,Math.min(screens.length-1,i));
+  if(n===state.screen) return;
+  state.screen=n; save(); render(); renderRail(); topOfScreen();
+}
+function go(delta){goTo(state.screen+delta);}
+
+function renderRail(){
+  const si=currentSection(state.screen);
+  const html=sections.map((s,i)=>`
+    <button class="section-btn ${i===si?"active":""}" data-section="${i}" ${i===si?'aria-current="step"':""}>
+      ${s.label}
+      <span class="section-meta">${i<si?"Terminé":i===si?sectionProgress(i):"À venir"}</span>
+    </button>`).join("");
+  document.getElementById("railList").innerHTML=html;
+  document.getElementById("drawerList").innerHTML=html;
+  document.querySelectorAll("[data-section]").forEach(b=>b.addEventListener("click",()=>{goTo(sections[Number(b.dataset.section)].start);closeDrawer();}));
+}
+
+function render(){
+  const s=screens[state.screen], si=currentSection(state.screen), sec=sections[si];
+  document.getElementById("sectionName").textContent=sec.label;
+  document.getElementById("screenCount").textContent=`Repère ${state.screen-sec.start+1} / ${sec.end-sec.start+1}`;
+  document.getElementById("bar").style.width=`${(state.screen+1)/screens.length*100}%`;
+  document.getElementById("prev").disabled=state.screen===0;
+  document.getElementById("next").textContent=state.screen===screens.length-1?"Terminé":"Suivant →";
+  document.getElementById("next").disabled=!!s.activity&&!state.answered[state.screen];
+
+  document.getElementById("screenHost").innerHTML=`
+    <section class="screen" aria-labelledby="screenTitle">
+      <div class="hero-band">
+        <div class="eyebrow">${s.eyebrow||sec.label}</div>
+        <h1 id="screenTitle">${s.title}</h1>
+      </div>
+      <div class="content">${s.body||""}${activityHTML(s.activity)}</div>
+    </section>`;
+  bindActivity(s.activity);
+  save();
+}
+
+function activityHTML(a){
+  if(!a)return "";
+  if(a.type==="choice"){
+    return `<div class="choice-list" role="group" aria-label="Choisissez une réponse">
+      ${a.choices.map((c,i)=>`<button class="choice" data-i="${i}"><span class="choice-key">${String.fromCharCode(65+i)}</span><span>${c}</span></button>`).join("")}
+      </div><div class="submit-row"><button class="primary" id="submitAct" disabled>Valider</button></div><div id="feedback" class="feedback"></div>`;
+  }
+  if(a.type==="multi"||a.type==="hotspots"){
+    return `<div class="${a.type==="hotspots"?"hotspot-grid":"choice-list"}" role="group" aria-label="Sélection multiple">
+      ${a.choices.map((c,i)=>a.type==="hotspots"
+      ?`<button class="hotspot" data-i="${i}">${c}</button>`
+      :`<button class="choice" data-i="${i}"><span class="choice-key">✓</span><span>${c}</span></button>`).join("")}
+      </div><div class="submit-row"><button class="primary" id="submitAct" disabled>Valider</button></div><div id="feedback" class="feedback"></div>`;
+  }
+  return "";
+}
+function bindActivity(a){
+  if(!a)return;
+  const cls=a.type==="hotspots"?".hotspot":".choice", buttons=[...document.querySelectorAll(cls)];
+  const submit=document.getElementById("submitAct"); let selected=[];
+  buttons.forEach(b=>b.addEventListener("click",()=>{
+    const i=Number(b.dataset.i);
+    if(a.type==="choice"){selected=[i];buttons.forEach(x=>x.classList.remove("selected"));b.classList.add("selected");}
+    else if(selected.includes(i)){selected=selected.filter(x=>x!==i);b.classList.remove(a.type==="hotspots"?"sel":"selected");}
+    else{selected.push(i);b.classList.add(a.type==="hotspots"?"sel":"selected");}
+    submit.disabled=!selected.length;
+  }));
+  submit.addEventListener("click",()=>{
+    let ok=false,msg="";
+    if(a.type==="choice"){
+      const i=selected[0];ok=i===a.correct;msg=a.feedback[i]||"";
+      buttons.forEach((b,j)=>{b.disabled=true;if(j===a.correct)b.classList.add("correct");else if(j===i)b.classList.add("wrong")});
+    } else {
+      const c=[...a.correct].sort((x,y)=>x-y),g=[...selected].sort((x,y)=>x-y);ok=JSON.stringify(c)===JSON.stringify(g);msg=a.feedback;
+      buttons.forEach((b,j)=>{b.disabled=true;if(c.includes(j))b.classList.add(a.type==="hotspots"?"good":"correct");else if(selected.includes(j))b.classList.add(a.type==="hotspots"?"bad":"wrong")});
+    }
+    const f=document.getElementById("feedback");f.className=`feedback show ${ok?"good":"bad"}`;f.innerHTML=`<strong>${ok?"Bien vu.":"À retenir."}</strong><br>${msg}`;
+    state.answered[state.screen]=true;save();document.getElementById("next").disabled=false;submit.disabled=true;
+  });
+}
+function openDrawer(){document.getElementById("drawer").classList.add("open");document.getElementById("backdrop").classList.add("show")}
+function closeDrawer(){document.getElementById("drawer").classList.remove("open");document.getElementById("backdrop").classList.remove("show")}
+window.addEventListener("beforeunload",()=>{save();SCORM.finish();});
+document.addEventListener("DOMContentLoaded",()=>{
+  document.getElementById("prev").addEventListener("click",()=>go(-1));
+  document.getElementById("next").addEventListener("click",()=>{if(state.screen<screens.length-1)go(1);else save();});
+  document.getElementById("menuBtn").addEventListener("click",openDrawer);
+  document.getElementById("backdrop").addEventListener("click",closeDrawer);
+  boot();
+});
+</script>
+</body>
+</html>
