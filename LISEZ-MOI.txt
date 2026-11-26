@@ -1,2 +1,3 @@
-TEST LOCAL v1.4 — 6 infographies pédagogiques intégrées.
-Décompressez puis ouvrez index.html avec Chrome ou Edge.
+Version 1.5 — module SCORM 1.2.
+Paquet Moodle : zipper index.html, imsmanifest.xml et le dossier assets (a la racine du ZIP).
+Test local : ouvrir index.html avec Chrome ou Edge.
